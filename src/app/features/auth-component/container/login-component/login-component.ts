@@ -2,10 +2,11 @@ import { Component, input, OnInit, output, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginRequestDto } from '../../../../core/models/SignUpDto';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login-component',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,RouterLink],
   templateUrl: './login-component.html',
   styleUrl: './login-component.css',
 })
@@ -14,7 +15,6 @@ export class LoginComponent implements OnInit{
   submitted = signal<boolean>(false);
   loading= input<boolean>(false);
   onSubmitLoginDetail = output<LoginRequestDto>()
-  errorMessage: string = '';
 
   constructor(private fb: FormBuilder) {}
 
@@ -32,8 +32,6 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {
     this.submitted.set(true);
-    this.errorMessage = '';
-
     if (this.loginForm.invalid) {
       return;
     }

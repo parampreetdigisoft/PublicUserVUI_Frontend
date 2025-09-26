@@ -1,111 +1,138 @@
 <section class="container py-5">
   <div class="row justify-content-center">
+    @if(externalLogin() == null){
     <div class="col-md-6 col-lg-5">
-      <form [formGroup]="signupForm" (ngSubmit)="submit()" class="card shadow p-4 border-0 rounded-3">
+      <form
+        [formGroup]="signupForm"
+        (ngSubmit)="submit()"
+        class="card shadow p-4 border-0 rounded-3"
+      >
         <h2 class="text-center mb-4">Create an account</h2>
 
         <!-- Full Name -->
         <div class="mb-3">
           <label class="form-label">Full name</label>
-          <input 
-            type="text" 
-            formControlName="fullName" 
-            placeholder="Your full name" 
-            class="form-control" 
-            [ngClass]="{'is-invalid': f['fullName'].touched && f['fullName'].invalid}" 
+          <input
+            type="text"
+            formControlName="fullName"
+            placeholder="Your full name"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': f['fullName'].touched && f['fullName'].invalid }"
           />
-            @if(f['fullName'] !=null && f['fullName'].touched && f['fullName'].errors){
-                @if(f['fullName'].errors['required']){
-                    <div class="invalid-feedback" >
-                    Full name is required.
-                    </div>
-                }
-                @else if(f['fullName'].errors['minlength']){
-                    <div class="invalid-feedback">
-                        Minimum 3 characters required.
-                    </div>
-                }
-            }
+          @if(f['fullName'] !=null && f['fullName'].touched && f['fullName'].errors){
+          @if(f['fullName'].errors['required']){
+          <div class="invalid-feedback">Full name is required.</div>
+          } @else if(f['fullName'].errors['minlength']){
+          <div class="invalid-feedback">Minimum 3 characters required.</div>
+          } }
         </div>
 
         <!-- Email -->
         <div class="mb-3">
           <label class="form-label">Email</label>
-          <input 
-            type="email" 
-            formControlName="email" 
-            placeholder="name@example.com" 
-            class="form-control" 
-            [ngClass]="{'is-invalid': f['email'].touched && f['email'].invalid}" 
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="name@example.com"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': f['email'].touched && f['email'].invalid }"
           />
-            @if(f['email'] !=null && f['email'].touched && f['email'].errors){
-                @if(f['email'].errors['required']){
-                    <div class="invalid-feedback" >
-                    Full name is required.
-                    </div>
-                }
-                @else if(f['email'].errors['email']){
-                    <div class="invalid-feedback">
-                        Please enter a valid email.
-                    </div>
-                }
-            }
+          @if(f['email'] !=null && f['email'].touched && f['email'].errors){
+          @if(f['email'].errors['required']){
+          <div class="invalid-feedback">Full name is required.</div>
+          } @else if(f['email'].errors['email']){
+          <div class="invalid-feedback">Please enter a valid email.</div>
+          } }
         </div>
 
         <!-- Phone -->
         <div class="mb-3">
           <label class="form-label">Phone</label>
-          <input 
-            type="tel" 
-            formControlName="phone" 
-            placeholder="e.g. +919900112233" 
-            class="form-control" 
-            [ngClass]="{'is-invalid': f['phone'].touched && f['phone'].invalid}" 
+          <input
+            type="tel"
+            formControlName="phone"
+            placeholder="e.g. +919900112233"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': f['phone'].touched && f['phone'].invalid }"
           />
-            @if(f['phone'] !=null && f['phone'].touched && f['phone'].errors){
-                @if(f['phone'].errors['required']){
-                    <div class="invalid-feedback" >
-                    Full name is required.
-                    </div>
-                }
-                @else if(f['phone'].errors['pattern']){
-                    <div class="invalid-feedback">
-                        Enter a valid phone (7-15 digits, optional +).
-                    </div>
-                }
-            }
+          @if(f['phone'] !=null && f['phone'].touched && f['phone'].errors){
+          @if(f['phone'].errors['required']){
+          <div class="invalid-feedback">Full name is required.</div>
+          } @else if(f['phone'].errors['pattern']){
+          <div class="invalid-feedback">Enter a valid phone (7-15 digits, optional +).</div>
+          } }
         </div>
 
         <!-- City -->
         <div class="mb-3">
           <label class="form-label">City</label>
-          <select 
-            formControlName="city" 
-            class="form-select" 
-            [ngClass]="{'is-invalid': f['city'].touched && f['city'].invalid}" 
+          <select
+            formControlName="city"
+            class="form-select"
+            [ngClass]="{ 'is-invalid': f['city'].touched && f['city'].invalid }"
           >
             <option value="" disabled selected>Select your city</option>
-            <option *ngFor="let c of cities" [value]="c.id">{{ c.name }}</option>
+            <option *ngFor="let c of cities()" [value]="c.cityID">{{ c.cityName }}</option>
           </select>
-            @if(f['city'] !=null && f['city'].touched && f['city'].errors){
-                @if(f['city'].errors['required']){
-                    <div class="invalid-feedback" >
-                       City is required.
-                    </div>
-                }
-            }
+          @if(f['city'] !=null && f['city'].touched && f['city'].errors){
+          @if(f['city'].errors['required']){
+          <div class="invalid-feedback">City is required.</div>
+          } }
         </div>
 
         <!-- Submit -->
         <button type="submit" class="btn btn-primary w-100" [disabled]="signupForm.invalid">
-          Sign up
+          Sign in
+          @if(loading()){
+            <span class="spinner-border spinner-border-sm ms-2"></span>
+          }
         </button>
+      </form>
+      <div id="googleBtn" class="mb-3"></div>
+      <button
+        type="button"
+        class="btn btn-outline-primary w-100 mb-2"
+        (click)="loginWithFacebook()"
+      >
+        Sign in with Facebook
+      </button>
+      <p class="text-center text-muted mt-3 mb-0">
+        By signing up you agree to our <a href="#">Terms</a>.
+      </p>
+    </div>
+    } @else{
+    <div class="col-md-6 col-lg-5">
+      <form
+        [formGroup]="signupForm"
+        class="card shadow p-4 border-0 rounded-3"
+      >
+        <h2 class="text-center mb-4">Create an account with City</h2>
+        <!-- City -->
+        <div class="mb-3">
+          <label class="form-label">City* </label>
+          <select
+            formControlName="city"
+            class="form-select"
+            [ngClass]="{ 'is-invalid': f['city'].touched && f['city'].invalid }"
+          >
+            <option value="" disabled selected>Select your city</option>
+            <option *ngFor="let c of cities()" [value]="c.cityID">{{ c.cityName }}</option>
+          </select>
+          @if(f['city'] !=null && f['city'].touched && f['city'].errors){
+          @if(f['city'].errors['required']){
+          <div class="invalid-feedback">City is required.</div>
+          } }
+        </div>
 
-        <!-- Terms -->
-        <p class="text-center text-muted mt-3 mb-0">
-          By signing up you agree to our <a href="#">Terms</a>.
-        </p>
+        <!-- Submit -->
+        <button type="button" (click)="CreateAccount();" class="btn btn-primary w-100" [disabled]="signupForm.invalid">
+          Create Account
+          @if(loading()){
+            <span class="spinner-border spinner-border-sm ms-2"></span>
+          }
+        </button>
       </form>
     </div>
+    }
   </div>
 </section>

@@ -18,3 +18,18 @@
       </div>
     </header>
   </div>
+
+<div class="header-below-line"> 
+  <div class="information-about"> 
+    This website contains 14 pillars of information for the urban city
+  </div>
+
+  <div class="scrolling-pillar-container">
+    <div #scrollTrack class="scrolling-pillar-track">
+      <span *ngFor="let item of (pillars$ | async)">{{ item }}</span>
+      <!-- duplicate list for seamless infinite loop -->
+      <span *ngFor="let item of (pillars$ | async)">{{ item }}</span>
+    </div>
+  </div>
+</div>
+

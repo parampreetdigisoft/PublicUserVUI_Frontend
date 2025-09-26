@@ -1,7 +1,26 @@
-@if(roleName()=='login'){
-<app-login-component (onSubmitLoginDetail)="login($event)" [loading]="loading()"></app-login-component>
-} @else if(roleName()=='sign-up'){
-<app-sign-up-component (submitsignUpDetail)="cityUserSignUp($event)" [loading]="loading()"></app-sign-up-component>
-} @else if(roleName()=='password-recovery'){
-<app-forget-password-component></app-forget-password-component>
+
+
+@if(!isSignUp()){
+    @if(roleName()=='login') {
+        <app-login-component (onSubmitLoginDetail)="login($event)" [loading]="loading()"></app-login-component>
+    } @else if(roleName()=='sign-up') {
+        <app-sign-up-component (submitsignUpDetail)="cityUserSignUp($event)" [loading]="loading()"></app-sign-up-component>
+    } @else if(roleName()=='forgot-password') {
+        <app-forget-password-component (forgotPassword)="sendEmail($event)" [resendEmail]="resendEmail()" [isSuccess] ="isSuccess()"></app-forget-password-component>
+    }
+    @else if(roleName()=='reset-password') {
+        <app-reset-password-component (resetPassword)="resetPassword($event)" [loading]="loading()" [isSuccess] ="isSuccess()"></app-reset-password-component>
+    }
+    @else {
+       <app-login-component (onSubmitLoginDetail)="login($event)" [loading]="loading()"></app-login-component>
+    }
 }
+@else{
+    <app-auth-pop-up 
+        (event)="popUpEvent()"
+        [title]="'Signed Up Successfully'"
+        [text]="'Thank you for signing up! Please check your email to verify your account. Once verified, you can reset your password to complete registration.'"
+        [buttonText]="'Re-Send'"
+    ></app-auth-pop-up>
+}
+

@@ -11,9 +11,10 @@ export const AUTH_ROUTES: Routes = [
     data: { roles: [] },
     children: [
       {path:'',redirectTo: 'login', pathMatch: 'full'},
-      { path: 'login', component: LoginComponent,data: { roles: 'login'} },
-      { path: 'sign-up', component: SignUpComponent,data: { roles: 'sign-up'} },
-      { path: 'password-recovery', component: ForgetPasswordComponent ,data: { roles: 'password-recovery'}},
+      { path: 'login', component: LoginComponent,data: { roles: 'login'}},
+      { path: 'sign-up', component: SignUpComponent,data: { roles: 'sign-up'}},
+      { path: 'forgot-password', component: ForgetPasswordComponent ,data: { roles: 'forgot-password'}},
+      { path: 'reset-password', component: ForgetPasswordComponent ,data: { roles: 'reset-password'}}
     ],
   },
 ];

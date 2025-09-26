@@ -5,6 +5,8 @@ import { IResultResponseDto } from '../../core/interfaces/IResultResponseDto';
 import { map, tap } from 'rxjs';
 import { UserService } from '../../core/services/user-service';
 import { CityUserSignUpDto } from '../../core/models/SignUpDto';
+import { environment } from '../../../environments/environment';
+declare const google: any;
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +28,8 @@ export class AuthService {
 
   public forgotPassword(email: string) {
     const data = JSON.stringify({ email });
-    return this.http.post(`Auth/forgotPassword`, data);
+    return this.http.post(`Auth/forgotPassword`, data)
+    .pipe(map((x) => x as IResultResponseDto<object>));;
   }
 
   public resetPassword(data: any) {
@@ -39,5 +42,19 @@ export class AuthService {
     return this.http
       .post(`Auth/CityUserSignUp`, data)
       .pipe(map((x) => x as IResultResponseDto<string>));
+  }
+
+  public initGoogleButton(elementId: string, callback: (response: any) => void) {
+    if (typeof google !== 'undefined'){
+          google.accounts.id.initialize({
+        client_id: environment.googleClientId,
+        callback
+      });
+
+      google.accounts.id.renderButton(
+        document.getElementById(elementId),
+        { theme: 'outline', size: 'large' }
+      );
+    }
   }
 }
