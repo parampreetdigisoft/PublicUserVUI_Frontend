@@ -1,24 +1,3 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-.common_button{
-    border-radius: 500px !important;
-    background: var(--Primary-Color);
-    padding: 9px 20px;
-    text-align: center;
-    border: 1px solid var(--Primary-Color);
-    color: var(--White-Color);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px;
-    transition: 0.3s;
-    display: flex;
-    grid-gap: 8px;
-	justify-content: center;
-}
-.common_button:hover
-{
-  background-color: var(--Hover-Primary-color);
-}

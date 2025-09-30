@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http-service';
-import { UserService } from './user-service';
 import { BehaviorSubject, map } from 'rxjs';
-import { IResultResponseDto } from '../interfaces/IResultResponseDto';
-import { CityVM } from '../models/CityVM';
+
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -12,13 +10,8 @@ import { environment } from '../../../environments/environment';
 export class CommonService {
   private years = new BehaviorSubject<number[]>(this.getYearList(2025));
 
-  constructor(private http: HttpService, private userService: UserService) { }
+  constructor(private http: HttpService) { }
 
-  public getAllCities() {
-    return this.http
-      .get(`CityUser/getAllCities`)
-      .pipe(map((x) => x as IResultResponseDto<CityVM[]>));
-  }
   get applicateYears() {
     return this.years.value;
   }
