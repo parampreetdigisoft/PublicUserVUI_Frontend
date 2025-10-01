@@ -27,7 +27,7 @@ export class CommonService {
     }
     return years;
   }
-  goToSubscriptionApp() {
-    window.open(environment.subscriptionUrl, '_self');
+  goToSubscriptionApp(url:string='') {
+    window.open(environment.subscriptionUrl+url, '_self');
   }
 }

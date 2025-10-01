@@ -10,12 +10,12 @@ const scrollConfig: InMemoryScrollingOptions = {
 
 const inMemoryScrollingFeature: InMemoryScrollingFeature =
   withInMemoryScrolling(scrollConfig);
-  
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes,inMemoryScrollingFeature),
+    provideRouter(routes, inMemoryScrollingFeature),
     provideHttpClient()
   ]
 };

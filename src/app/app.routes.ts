@@ -19,6 +19,10 @@ export const routes: Routes = [
     loadComponent: () =>import('../app/features/blog-component/blog-component').then(m => m.BlogComponent),
   },
   {
+    path: 'blog-details',
+    loadComponent: () =>import('../app/features/blog-component/container/blog-detail-component/blog-detail-component').then(m => m.BlogDetailComponent),
+  },
+  {
     path: 'partner-city',
     loadComponent: () =>import('../app/features/partner-city/partner-city').then(m => m.PartnerCity),
   },
