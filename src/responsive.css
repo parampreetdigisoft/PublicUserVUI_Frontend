@@ -318,6 +318,14 @@ font-size: 1.6rem;
 .publication_tags li {
     font-size: 1.5rem;
 }
+.single_item {
+    padding-left: 0;
+    border-right: 0;
+}
+.single_card_new {
+    height: auto;
+    margin-bottom: 20px;
+}
 }
 
 @media only screen and (max-width:576px)
