@@ -1,25 +1,4 @@
-<div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-      </a>
-
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
-      </ul>
-
-      <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2" routerLink="/auth/login">Login</button>
-        <button type="button" class="btn btn-primary" routerLink="/auth/sign-up">Sign-up</button>
-      </div>
-    </header>
-  </div>
-
-<div class="header-below-line"> 
+<!-- <div class="header-below-line"> 
   <div class="information-about"> 
     This website contains 14 pillars of information for the urban city
   </div>
@@ -27,9 +6,56 @@
   <div class="scrolling-pillar-container">
     <div #scrollTrack class="scrolling-pillar-track">
       <span *ngFor="let item of (pillars$ | async)">{{ item }}</span>
-      <!-- duplicate list for seamless infinite loop -->
       <span *ngFor="let item of (pillars$ | async)">{{ item }}</span>
     </div>
   </div>
-</div>
+</div> -->
 
+<header class="cus_header">
+    <div class="container-xxl">
+        <div class="row align-items-center">
+            <div class="col-auto">
+                <div class="logo">
+                    <a href=""><img src="../../../../../logo.png" alt="" srcset=""></a>
+                </div>
+            </div>
+            <div class="col-auto order-last col-md">
+                <div class="navbar-expand-md">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                        <div class="items">
+                            <ul class="nav-items">
+                                <li><a href="void::javascript(0)" routerLink="/home" routerLinkActive="active"
+                                        class="nav-li">Home</a></li>
+                                <li><a href="void::javascript(0)" class="nav-li" routerLink="index-methodology"
+                                        routerLinkActive="active">Index Methodology</a></li>
+                                <li><a href="void::javascript(0)" class="nav-li" routerLink="partner-city"
+                                        routerLinkActive="active">Partner Cities</a></li>
+                                <li><a href="void::javascript(0)" class="nav-li" routerLink="research-publication"
+                                        routerLinkActive="active">Research Publications</a></li>
+                                <li><a href="void::javascript(0)" class="nav-li" routerLink="blog"
+                                        routerLinkActive="active">Blogs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col col-md-auto order-md-last">
+                <div class="nav-links">
+                    <a href="#" class="link1">Login <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            viewBox="0 0 16 16" fill="none">
+                            <path
+                                d="M15.4798 14.2656C14.5158 12.5737 13.0105 11.2554 11.2062 10.5229C12.1035 9.84996 12.7663 8.91177 13.1007 7.84123C13.4351 6.77068 13.4242 5.62206 13.0695 4.55805C12.7148 3.49405 12.0344 2.56861 11.1245 1.91282C10.2147 1.25703 9.12154 0.904144 7.99999 0.904144C6.87843 0.904144 5.7853 1.25703 4.87544 1.91282C3.96558 2.56861 3.28513 3.49405 2.93046 4.55805C2.57579 5.62206 2.56489 6.77068 2.8993 7.84123C3.23372 8.91177 3.89649 9.84996 4.79374 10.5229C2.98946 11.2554 1.48416 12.5737 0.520142 14.2656C0.460408 14.3617 0.420595 14.4688 0.403071 14.5805C0.385547 14.6922 0.390669 14.8064 0.418133 14.9161C0.445597 15.0258 0.494841 15.1289 0.562939 15.2192C0.631037 15.3095 0.716598 15.3852 0.814536 15.4418C0.912474 15.4984 1.02079 15.5347 1.13304 15.5486C1.24529 15.5625 1.35919 15.5537 1.46797 15.5226C1.57674 15.4916 1.67817 15.4391 1.76622 15.3681C1.85428 15.2971 1.92716 15.2091 1.98053 15.1094C3.25459 12.9072 5.50459 11.5938 7.99999 11.5938C10.4954 11.5938 12.7454 12.9079 14.0194 15.1094C14.1351 15.2954 14.3186 15.4291 14.5311 15.4823C14.7435 15.5355 14.9684 15.5039 15.158 15.3944C15.3477 15.2848 15.4873 15.1058 15.5473 14.8951C15.6074 14.6845 15.5832 14.4587 15.4798 14.2656ZM4.34374 6.25C4.34374 5.52687 4.55817 4.81997 4.95992 4.2187C5.36168 3.61743 5.93271 3.1488 6.6008 2.87207C7.26889 2.59534 8.00404 2.52293 8.71328 2.66401C9.42253 2.80508 10.074 3.15331 10.5853 3.66464C11.0967 4.17598 11.4449 4.82746 11.586 5.53671C11.7271 6.24595 11.6547 6.9811 11.3779 7.64919C11.1012 8.31728 10.6326 8.88831 10.0313 9.29006C9.43002 9.69182 8.72312 9.90625 7.99999 9.90625C7.03063 9.90514 6.1013 9.51957 5.41586 8.83413C4.73042 8.14869 4.34485 7.21936 4.34374 6.25Z"
+                                fill="#304A43" />
+                        </svg></a>
+                    <a href="void::javascript(0)" routerLink="/contact" class="link2">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

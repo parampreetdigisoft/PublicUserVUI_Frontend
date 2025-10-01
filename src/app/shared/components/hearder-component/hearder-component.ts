@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { BehaviorSubject, interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-hearder-component',
-  imports: [RouterLink,CommonModule],
+  imports: [RouterLink,RouterLinkActive,CommonModule],
   templateUrl: './hearder-component.html',
   styleUrl: './hearder-component.css'
 })
