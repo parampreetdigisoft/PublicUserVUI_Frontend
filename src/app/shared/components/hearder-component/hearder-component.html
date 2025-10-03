@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-auto">
                 <div class="logo">
-                    <a href="void::javascript(0)"><img src="../../../../../logo.png" alt="" srcset=""></a>
+                    <a href="void::javascript(0)" routerLink="/"><img src="../../../../../logo.png" alt="" srcset=""></a>
                 </div>
             </div>
             <div class="col-auto order-last col-md">
@@ -16,8 +16,8 @@
                     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                         <div class="items">
                             <ul class="nav-items">
-                                <li><a href="void::javascript(0)" routerLink="/home" routerLinkActive="active"
-                                        class="nav-li">Home</a></li>
+                                <li><a href="void::javascript(0)" routerLink="/" routerLinkActive="active"
+                                       [routerLinkActiveOptions]="{ exact: true }" class="nav-li">Home</a></li>
                                 <li><a href="void::javascript(0)" class="nav-li" routerLink="index-methodology"
                                         routerLinkActive="active">Index Methodology</a></li>
                                 <li><a href="void::javascript(0)" class="nav-li" routerLink="partner-city"
