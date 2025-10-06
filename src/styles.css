@@ -249,6 +249,9 @@ a {
 	background: #304A43;
 	padding: 1rem 1.6rem;
 	transition: 0.3s;
+	display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .link2:hover {
@@ -658,7 +661,10 @@ width: 9rem;
 	line-height: normal;
 	text-transform: capitalize;
 }
-
+.plans_advantage li span
+{
+	flex: 1;
+}
 .most_popular {
 	padding: 0 0.2rem;
 	border-radius: 2rem;
@@ -1211,7 +1217,7 @@ width: 9rem;
 .tranform-link a:hover
 {
 	background-color: #DDB000;
-	color: #304A43;
+	color: #304A43 !important;
 }
 
 .tranform-link a svg path
@@ -2040,3 +2046,41 @@ height: 100%;
 {
 	height: 8.6rem;
 }
+
+
+.input_field .ng-select-container {
+    border-radius: 1rem !important;
+    border: 0.1rem solid #EEE7CA !important;
+    color: #304A43 !important;
+    text-align: left;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 154%;
+    letter-spacing: -0.014rem;
+    padding: 2rem;
+    background-color: #FFFDF4 !important;
+    height: auto !important;
+}
+
+.input_field .ng-value-container
+{
+	padding-left: 0 !important;
+}
+
+.input_field .ng-input {
+    top: 19px !important;
+    padding-left: 2rem !important;
+}
+
+.input_field *
+{
+	outline: 0 !important;
+	box-shadow: none !important;
+}
+
+.input_field .ng-select .ng-has-value .ng-placeholder {
+    display: block;
+    color: #304A43 !important;
+}
+

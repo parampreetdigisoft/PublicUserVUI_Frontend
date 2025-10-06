@@ -1,33 +1,41 @@
 .toast[_ngcontent-ng-c2681823614][_ngcontent-ng-c2681823614] {
-    position: absolute!important;
-    top: calc(100dvh - 150px) !important;
-    left: 50%!important;
-    transform: translate(-50%)!important;
+    position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    right: 20px !important;
+    bottom: 20px !important;
 
 }
 .toast:has(.success) {
     color: #ffffff;
     background: green;
-     position: absolute!important;
-    top: calc(100dvh - 150px) !important;
-    left: 50%!important;
-    transform: translate(-50%)!important;
+     position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    right: 20px !important;
+    bottom: 20px !important;
 }
 .toast:has(.warning) {
     color: #ffffff;
     background: rgb(255, 174, 0);
-     position: absolute!important;
-    top: calc(100dvh - 150px) !important;
-    left: 50%!important;
-    transform: translate(-50%)!important;
+     position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    right: 20px !important;
+    bottom: 20px !important;
 }
 .toast:has(.info) {
     color: #ffffff;
     background: rgb(0, 174, 255);
-     position: absolute!important;
-    top: calc(100dvh - 150px) !important;
-    left: 50%!important;
-    transform: translate(-50%)!important;
+     position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    right: 20px !important;
+    bottom: 20px !important;
 }
 .toast-body svg  {
     width: 30px;
@@ -76,3 +84,4 @@ button.btn-close {
 .toast:has(.danger) .danger_svg {
     display: block !important;
 }
+
