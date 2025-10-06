@@ -6,8 +6,8 @@
 <app-footer-component></app-footer-component>
 
 
-
-<div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" *ngIf="showToast">
+@if(showToast()){
+  <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header" class="{{toastClass}}">
     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
   </div>
@@ -75,3 +75,4 @@
     {{toastMessage}}
   </div>
 </div>
+}

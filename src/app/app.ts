@@ -18,7 +18,7 @@ export class App {
   protected readonly title = signal('PublicVUI_Frontend');
   toastMessage = '';
   toastClass = '';
-  showToast = false;
+  showToast = signal(false);
   private destroy$ = new Subject();
   constructor(private toasterService: ToasterService) { }
   ngOnDestroy(): void {
@@ -38,11 +38,11 @@ export class App {
 
 
   private showToaster(message: string, className: string) {
-    this.showToast = true;
+    this.showToast.set(true);
     this.toastMessage = message;
     this.toastClass = className;
     setTimeout(() => {
-      this.showToast = false;
+      this.showToast.set(false);
     }, 3000);
   }
 }

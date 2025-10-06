@@ -76,10 +76,12 @@ button.btn-close {
 .toast:has(.danger) {
     color: #ffffff;
     background: red;
-    position: absolute!important;
-    top: calc(100dvh - 150px) !important;
-    left: 50%!important;
-    transform: translate(-50%)!important;
+      position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    right: 20px !important;
+    bottom: 20px !important;
 }
 .toast:has(.danger) .danger_svg {
     display: block !important;
