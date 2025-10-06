@@ -1174,8 +1174,6 @@ width: 9rem;
 
 .transform-h1 {
 	color: #304A43;
-
-
 	font-size: 3.5rem;
 	font-style: normal;
 	font-weight: 600;
@@ -1195,7 +1193,7 @@ width: 9rem;
 }
 
 .tranform-link a {
-	color: #FFF;
+	color: #FFF !important;
 
 	font-size: 1.6rem;
 	font-style: normal;
@@ -1423,9 +1421,16 @@ body:has(.resarch_publication_page) .transform
     letter-spacing: -0.014rem;
     padding: 2rem;
     background-color: transparent;
-	margin-bottom: 2rem;
+	
 	background: #FFFDF4;
 }
+
+.input_field
+{
+margin-bottom: 2rem;
+}
+
+
 
 .input_field .form-control:focus
 {
@@ -1915,9 +1920,9 @@ width:2.0rem ;
 	width: 8.8rem;
 }
 
-.form_area .input_field .form-select {
+/* .form_area .input_field .form-select {
     margin-bottom: 2rem;
-}
+} */
 
 .Melbourne-cards-p svg
 {

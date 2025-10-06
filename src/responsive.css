@@ -355,5 +355,10 @@ font-size: 1.6rem;
     width: 6.3464rem;
 }
 
+.cus_capcha
+{
+    transform: scale();
+}
+
 
 }

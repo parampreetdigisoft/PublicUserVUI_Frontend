@@ -39,33 +39,41 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- City -->
-                    <div class="col-sm-6 col-md-3">
-                        <div class="input_field">
-                            <select class="form-select" formControlName="city">
-                                <option value="">Select City</option>
-                                <option value="NY">New York</option>
-                                <option value="LDN">London</option>
-                            </select>
-                            <div class="text-danger mt-1"
-                                *ngIf="contactForm.get('city')?.touched && contactForm.get('city')?.invalid">
-                                City is required.
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Country -->
                     <div class="col-sm-6 col-md-3">
                         <div class="input_field">
-                            <select class="form-select" formControlName="country">
-                                <option value="">Select Country</option>
-                                <option value="USA">USA</option>
-                                <option value="UK">UK</option>
-                            </select>
+                                <ng-select
+                                   class="form-select"
+                                    [items]="countries"
+                                    [bindValue]="'country'"
+                                    [bindLabel]="'country'"
+                                    [placeholder]="contactForm.get('country')?.invalid ? 'Select Country' : ''"
+                                    formControlName="country"
+                                    [searchable]="true"
+                                    (change)="onCountryChange($event)"
+                                    [clearable]="contactForm.get('country')?.valid">
+                                    </ng-select>
                             <div class="text-danger mt-1"
                                 *ngIf="contactForm.get('country')?.touched && contactForm.get('country')?.invalid">
                                 Country is required.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- City -->
+                    <div class="col-sm-6 col-md-3">
+                        <div class="input_field">
+                            <ng-select 
+                            class="form-select" 
+                            [items]="cities"
+                            [placeholder]="contactForm.get('city')?.invalid ? 'Select City' : ''"
+                            formControlName="city"
+                            [searchable]="true"
+                            [clearable]="contactForm.get('city')?.valid">
+                            </ng-select>
+
+                            <div class="text-danger mt-1"
+                                *ngIf="contactForm.get('city')?.touched && contactForm.get('city')?.invalid">
+                                City is required.
                             </div>
                         </div>
                     </div>
@@ -95,7 +103,7 @@
 
                     <!-- reCAPTCHA -->
                     <div class="col-md-12 text-center my-3">
-                        <re-captcha  (resolved)="resolved($event)">
+                        <re-captcha  (resolved)="resolved($event)" class="d-table mx-auto cus_capcha">
                         </re-captcha>
                         <div class="text-danger mt-1"
                             *ngIf="contactForm.get('recaptcha')?.touched && contactForm.get('recaptcha')?.invalid">
@@ -104,7 +112,7 @@
                     </div>
 
                     <!-- Submit -->
-                    <div class="col-md-12 text-center"> <button type="submit" class="btn link2">Submit</button> </div>
+                    <div class="col-md-12 text-center"> <button type="submit" class="btn link2">Submit <span *ngIf="loading" class="spinner-border spinner-border-sm ms-2"></span></button> </div>
 
                 </div>
             </form>
