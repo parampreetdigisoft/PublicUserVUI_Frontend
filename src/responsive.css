@@ -25,6 +25,9 @@
 .process-box {
     padding: 1rem 1rem;
 }
+.select_fiels {
+    width: 19.5%;
+}
 }
 
 @media only screen and (max-width:1199px)
@@ -86,6 +89,9 @@
 }
 .section-3-p2 {
     font-size: 2.5rem;
+}
+.select_fiels {
+    width: 19.3%;
 }
 
 }

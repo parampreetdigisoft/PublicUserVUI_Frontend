@@ -960,7 +960,6 @@ width: 9rem;
     padding: 4rem;
     display: flex;
     gap: 2rem;
-    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -1372,7 +1371,7 @@ width: 9rem;
 }
 
 .select_fiels {
-    flex: 1;
+    width: 20.5%;
 }
 
 .main-cities .form-select:focus
