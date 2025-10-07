@@ -17,6 +17,14 @@
                 <div class="select_fiels">
                     <select class="form-select cus_select">
                         <option selected>All Countries</option>
+                        <option value="1">USA</option>
+                        <option value="2">UK</option>
+                    </select>
+                </div>
+
+                <div class="select_fiels">
+                    <select class="form-select cus_select">
+                        <option selected>All Regions</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -25,30 +33,22 @@
 
                 <div class="select_fiels">
                     <select class="form-select cus_select">
-                        <option selected>ALL Regions</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>All Cities</option>
+                        <option value="1">New York</option>
+                        <option value="2">Denver</option>
+                        <option value="3">San Francisco</option>
                     </select>
                 </div>
 
-                <div class="select_fiels">
+                <div class="select_fiels"> 
                     <select class="form-select cus_select">
-                        <option selected>ALL Sizes</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>All Pillars</option>
+                        <option *ngFor="let pillar of pillars; let i = index" [value]="i + 1">
+                        {{ pillar }}
+                        </option>
                     </select>
                 </div>
 
-                <div class="select_fiels">
-                    <select class="form-select cus_select">
-                        <option selected> ALL Pillars</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
                 <div class="cities-link">
                     <button type="button" class="btn link2">Search</button>
 
