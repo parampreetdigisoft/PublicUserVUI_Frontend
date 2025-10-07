@@ -1970,7 +1970,7 @@ width:2.0rem ;
 
 .vui_section .tranform-link a {
     background: #EFBF04;
-	color: #304A43;
+	color: #304A43 !important;
 }
 
 .vui_section .tranform-link a:hover

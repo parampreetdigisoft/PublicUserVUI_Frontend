@@ -81,6 +81,13 @@
     display: table;
     clear: both;
 }
+.section-3-p {
+    font-size: 2.5rem;
+}
+.section-3-p2 {
+    font-size: 2.5rem;
+}
+
 }
 
 @media only screen and (max-width:991px)
@@ -325,6 +332,9 @@ font-size: 1.6rem;
 .single_card_new {
     height: auto;
     margin-bottom: 20px;
+}
+.section-3-p {
+    margin-bottom: 15px;
 }
 }
 

@@ -43,32 +43,27 @@
                 <p class="section-3-p">Key Diemensions:</p>
             </div>
             <div class="col-md-9">
-
-            </div>
-            <div class="scrolling-pillar-container">
+<div class="scrolling-pillar-container">
                 <div #scrollTrack class="scrolling-pillar-track">
-                    <span *ngFor="let item of (pillars$ | async)">
-                        <div class="col-md-3">
+                    <span *ngFor="let item of (pillars$ | async)" class="outer_text">
+                        
                             <p class="section-3-p2">{{item}}</p>
-                        </div>
-                        <div class="col-md-1">
+                        
                             <div class="icon-3">
                                 <img src="../../../../Group 2.png" alt="" srcset="">
                             </div>
-                        </div>
                     </span>
-                    <span *ngFor="let item of (pillars$ | async)">
-                        <div class="col-md-3">
+                    <span *ngFor="let item of (pillars$ | async)" class="outer_text">
                             <p class="section-3-p2">{{item}} </p>
-                        </div>
-                        <div class="col-md-1">
+                        
                             <div class="icon-3">
                                 <img src="../../../../Group 2.png" alt="" srcset="">
                             </div>
-                        </div>
                     </span>
                 </div>
             </div>
+            </div>
+            
         </div>
     </div>
 </section>

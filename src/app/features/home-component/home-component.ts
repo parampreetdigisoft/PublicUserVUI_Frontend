@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   pillars = [
     "environmental",
     "economic",
-    "Socia"
+    "Social"
   ];
 
   // BehaviorSubject (in case you want to add/remove dynamically later)
