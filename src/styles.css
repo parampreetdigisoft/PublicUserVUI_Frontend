@@ -579,11 +579,17 @@ width: 9rem;
 	font-weight: 600;
 	line-height: normal;
 }
-
+.outer_plan
+{
+	height: 100%;
+}
 .inner_outer_plan {
-	border-radius: 1.5rem;
-	background: #FFFDF4;
-	padding: 2.5rem;
+    border-radius: 1.5rem;
+    background: #FFFDF4;
+    padding: 2.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .price_head {
@@ -613,7 +619,7 @@ width: 9rem;
 
 .plan_desc {
 	margin-top: 1rem;
-	margin-bottom: 4.3rem;
+	margin-bottom: 2.3rem;
 	color: #304A43;
 	font-size: 1.5rem;
 	font-style: normal;
@@ -634,8 +640,9 @@ width: 9rem;
 	font-weight: 700;
 	line-height: normal;
 	text-align: center;
-	margin-bottom: 2.3rem;
+	margin-bottom: 0;
 	transition: 0.3s;
+	margin-top: auto;
 }
 
 .choose_plan_btn:hover {
@@ -648,29 +655,30 @@ width: 9rem;
 	display: flex;
 	flex-direction: column;
 	grid-gap: 1.5rem;
+	margin-bottom: 3.0rem;
 }
 
 .plans_advantage li {
-	display: flex;
-	flex-wrap: wrap;
-	grid-gap: 1.5rem;
-	color: #304A43;
-	font-size: 1.7rem;
-	font-style: normal;
-	font-weight: 500;
-	line-height: normal;
-	text-transform: capitalize;
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 0.5rem;
+    color: #304A43;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
 }
 .plans_advantage li span
 {
 	flex: 1;
 }
 .most_popular {
-	padding: 0 0.2rem;
-	border-radius: 2rem;
-	background: #EFBF04;
+    padding: 0 0.2rem;
+    border-radius: 2rem;
+    background: #EFBF04;
+    margin-top: -3.9rem;
 }
-
 .most_popular_text {
 	display: flex;
 	flex-wrap: wrap;
@@ -682,10 +690,11 @@ width: 9rem;
 	font-weight: 600;
 	line-height: normal;
 	padding: 1rem 0;
+	grid-gap: 0.5rem;
 }
 
 .plans_area {
-	margin-top: 4rem;
+    margin-top: 8rem;
 }
 
 .partners_cities {
@@ -1880,10 +1889,12 @@ ul.footer_links_area {
 	width:2.6rem;
 	height:2.0rem ;
 }
-.plans_advantage svg{
-height:2.0rem ;
-width:2.0rem ;
-} 
+.plans_advantage svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    position: relative;
+    top: 2px;
+}
 
 .city_location svg
 {
