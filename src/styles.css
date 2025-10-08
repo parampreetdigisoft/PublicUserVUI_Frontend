@@ -351,6 +351,7 @@ a {
 	justify-content: center;
 	gap: 1rem;
 	transition: 0.3s;
+	align-items: center;
 }
 
 .banner-link2 svg path {
@@ -987,7 +988,8 @@ width: 9rem;
 }
 
 .cities-link .link2 {
-	padding: 2rem 4rem; 
+	padding: 2rem 4rem;
+    max-width: 135px;
 
 }
 

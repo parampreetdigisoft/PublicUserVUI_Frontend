@@ -23,7 +23,7 @@ export class ViewParterCity implements OnInit {
     const score = this.cityDetail().score;
     const highScore = this.cityDetail().highScore * 100 /4;
     const progress = this.cityDetail().progress;
-    const lowerScore = this.cityDetail().lowerScore;
+    const lowerScore = this.cityDetail().lowerScore * 100 /4;
 
     // Minimum display value for zero scores
     const minDisplay = 0.5;
@@ -67,7 +67,7 @@ export class ViewParterCity implements OnInit {
           angleKey: 'value',
           innerRadiusRatio: 0.15,
           outerRadiusRatio: 0.3,
-          fills: ['#c7f39eff', '#FFFFFF'],
+          fills: ['#f1f388ff', '#FFFFFF'],
           showInLegend: false,
           calloutLabelKey: 'type',
           tooltip: {
@@ -84,7 +84,10 @@ export class ViewParterCity implements OnInit {
       legend: { enabled: false },
       gradientLegend:{enabled:true,position:'bottom'},
       title: { text: '' },
-      subtitle: { text: '' }
+      subtitle: { text: '' },
+      background: {
+        fill: 'transparent',
+      },
     };
   }
 
