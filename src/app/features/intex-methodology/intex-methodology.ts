@@ -39,11 +39,11 @@ export class IntexMethodology {
         const url = window.URL.createObjectURL(res);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "summary-report.pdf.pdf";
+        a.download = "Summary-Report.pdf";
         a.click();
         window.URL.revokeObjectURL(url);
         a.remove();
-        this.toaster.showSuccess("summary-report downloaded successfully");
+        this.toaster.showSuccess("Summary Report downloaded successfully");
       },
       error: (err: any) => {
         this.loading.set(false);
