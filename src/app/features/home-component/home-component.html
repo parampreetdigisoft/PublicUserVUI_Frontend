@@ -11,13 +11,13 @@
 
                 </div>
                 <div class="banner-links">
-                    <a href="void::javascript(0)" routerLink="/index-methodology" class="banner-link1">Explore the Index
+                    <a href="#" (click)=" $event.preventDefault()" routerLink="/index-methodology" class="banner-link1">Explore the Index
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
                             <path
                                 d="M0.500002 8C0.500002 8.18785 0.574627 8.36802 0.70746 8.50085C0.840294 8.63368 1.02046 8.70831 1.20831 8.70831H15.0814L9.91521 13.8737C9.8494 13.9395 9.7972 14.0176 9.76158 14.1036C9.72597 14.1896 9.70764 14.2817 9.70764 14.3748C9.70764 14.4679 9.72597 14.56 9.76158 14.646C9.7972 14.732 9.8494 14.8101 9.91521 14.8759C9.98102 14.9417 10.0591 14.9939 10.1451 15.0295C10.2311 15.0652 10.3233 15.0835 10.4163 15.0835C10.5094 15.0835 10.6016 15.0652 10.6876 15.0295C10.7735 14.9939 10.8517 14.9417 10.9175 14.8759L17.2923 8.50113C17.3581 8.43535 17.4104 8.35723 17.446 8.27124C17.4817 8.18525 17.5 8.09308 17.5 8C17.5 7.90692 17.4817 7.81475 17.446 7.72876C17.4104 7.64277 17.3581 7.56465 17.2923 7.49887L10.9175 1.12408C10.7846 0.991171 10.6043 0.916504 10.4163 0.916504C10.2284 0.916504 10.0481 0.991171 9.91521 1.12408C9.7823 1.25699 9.70764 1.43725 9.70764 1.62521C9.70764 1.81317 9.7823 1.99343 9.91521 2.12634L15.0814 7.29169H1.20831C1.02046 7.29169 0.840294 7.36631 0.70746 7.49915C0.574627 7.63198 0.500002 7.81214 0.500002 8Z"
                                 fill="#304A43" />
                         </svg></a>
-                    <a href="void::javascript(0)" class="banner-link2">Download Executive Summary
+                    <a (click)="DownloadExecutiveSummeryPdf(); $event.preventDefault()"   class="banner-link2" >Download Executive Summary <span *ngIf="loading()" class="spinner-border spinner-border-sm ms-2"> </span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="20" viewBox="0 0 26 20" fill="none">
                             <path
                                 d="M24.7187 9.99999C24.7236 11.8605 24.12 13.6716 23 15.1572C22.9383 15.2393 22.861 15.3084 22.7726 15.3606C22.6842 15.4129 22.5864 15.4472 22.4848 15.4616C22.3831 15.476 22.2796 15.4702 22.1802 15.4447C22.0807 15.4191 21.9873 15.3742 21.9052 15.3125C21.8232 15.2508 21.754 15.1736 21.7018 15.0852C21.6496 14.9968 21.6153 14.8989 21.6009 14.7973C21.5865 14.6956 21.5922 14.5921 21.6178 14.4927C21.6434 14.3933 21.6883 14.2998 21.75 14.2178C22.6668 13.0032 23.1607 11.5218 23.1562 9.99999C23.1562 8.13518 22.4154 6.34676 21.0968 5.02814C19.7782 3.70953 17.9898 2.96874 16.125 2.96874C14.2602 2.96874 12.4717 3.70953 11.1531 5.02814C9.83451 6.34676 9.09372 8.13518 9.09372 9.99999C9.09372 10.2072 9.01141 10.4059 8.8649 10.5524C8.71839 10.6989 8.51967 10.7812 8.31247 10.7812C8.10527 10.7812 7.90656 10.6989 7.76004 10.5524C7.61353 10.4059 7.53122 10.2072 7.53122 9.99999C7.53084 9.21158 7.63895 8.42688 7.85251 7.66795C7.74606 7.65624 7.63864 7.65624 7.53122 7.65624C6.28802 7.65624 5.09573 8.1501 4.21666 9.02917C3.33758 9.90825 2.84372 11.1005 2.84372 12.3437C2.84372 13.5869 3.33758 14.7792 4.21666 15.6583C5.09573 16.5374 6.28802 17.0312 7.53122 17.0312H9.87497C10.0822 17.0312 10.2809 17.1135 10.4274 17.2601C10.5739 17.4066 10.6562 17.6053 10.6562 17.8125C10.6562 18.0197 10.5739 18.2184 10.4274 18.3649C10.2809 18.5114 10.0822 18.5937 9.87497 18.5937H7.53122C6.67202 18.5939 5.822 18.417 5.03426 18.0739C4.24652 17.7308 3.53797 17.229 2.95288 16.5998C2.36778 15.9706 1.9187 15.2276 1.63368 14.417C1.34866 13.6065 1.23383 12.7458 1.29636 11.8889C1.35888 11.032 1.59742 10.1972 1.99708 9.43656C2.39674 8.67596 2.94893 8.00594 3.61916 7.46834C4.2894 6.93073 5.06328 6.5371 5.89247 6.31201C6.72167 6.08693 7.58837 6.03523 8.43845 6.16014C9.30407 4.42885 10.7288 3.04049 12.4819 2.21994C14.235 1.39939 16.2138 1.19471 18.0978 1.63905C19.9817 2.0834 21.6605 3.15074 22.8621 4.6682C24.0638 6.18566 24.718 8.06435 24.7187 9.99999ZM17.916 14.1348L16.125 15.9267V9.99999C16.125 9.79279 16.0427 9.59407 15.8961 9.44756C15.7496 9.30105 15.5509 9.21874 15.3437 9.21874C15.1365 9.21874 14.9378 9.30105 14.7913 9.44756C14.6448 9.59407 14.5625 9.79279 14.5625 9.99999V15.9267L12.7715 14.1348C12.6249 13.9882 12.426 13.9058 12.2187 13.9058C12.0114 13.9058 11.8126 13.9882 11.666 14.1348C11.5194 14.2813 11.437 14.4802 11.437 14.6875C11.437 14.8948 11.5194 15.0936 11.666 15.2402L14.791 18.3652C14.8635 18.4379 14.9497 18.4955 15.0445 18.5348C15.1394 18.5741 15.2411 18.5944 15.3437 18.5944C15.4464 18.5944 15.5481 18.5741 15.6429 18.5348C15.7377 18.4955 15.8239 18.4379 15.8965 18.3652L19.0215 15.2402C19.1681 15.0936 19.2504 14.8948 19.2504 14.6875C19.2504 14.4802 19.1681 14.2813 19.0215 14.1348C18.8749 13.9882 18.676 13.9058 18.4687 13.9058C18.2614 13.9058 18.0626 13.9882 17.916 14.1348Z"
@@ -672,184 +672,7 @@ The Enterprise Plan activates the full City-360° analytical ecosystem.
 </section>
 
 
-<section class="faq_section">
-    <div class="container-xxl">
-        <h4 class="common_head_white">Frequently asked questions</h4>
-        <p class="common_sub_head_white">It is a long established fact that a reader will be distracted by the readable
-            content of a page when looking at its layout.</p>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="custom_accordian mt-5">
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseOne" aria-expanded="true"
-                                    aria-controls="flush-collapseOne">
-                                    What is the Veridian Urban Index (VUI)?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse show"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">The Veridian Urban Index (VUI) is a City-360° measurement framework—a single, integrated system that analyzes how every subsystem of a city functions, interacts, and sustains the whole. It evaluates governance, education, health, housing, ecology, mobility, culture, and technology as interconnected elements of one living organism. Developed by Veridian Urban Systems, it turns fragmented urban data into coherent intelligence—showing not only how cities perform, but how they think, evolve, and adapt.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                    aria-controls="flush-collapseTwo">
-                                    What purpose does the VUI serve?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">The VUI is both a diagnostic instrument and a strategic compass. It enables mayors, planners, and investors to see the city as a complete system, not a cluster of departments. It reveals hidden dependencies—how failures in housing affect health, how education influences civic trust, how digital readiness interacts with employment. The purpose is simple: to make cities governable as systems, not silos.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                    aria-controls="flush-collapseThree">
-                                    How is the VUI different from other city indices?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Other indices measure fragments—economy, environment, or infrastructure—often in isolation. The VUI is a City-360° system, built to test interdependence. It exposes the structural logic of a city: how its power, resilience, and legitimacy are distributed across its systems. It’s not a ranking tool; it’s an urban reasoning engine that transforms complexity into actionable coherence.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree_01" aria-expanded="false"
-                                    aria-controls="flush-collapseThree_01">
-                                    Why another index, when so many already exist?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree_01" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Because most existing indices count what is visible; the VUI tests what holds a city together. It measures the connective tissue between systems—trust, governance, memory, and foresight. The VUI was created to answer what others ignore: Can this city endure stress? Can it renew itself without breaking apart? It is a response to the fatigue of shallow metrics and the need for deeper truth in measurement.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree_02" aria-expanded="false"
-                                    aria-controls="flush-collapseThree_02">
-                                    Who uses the VUI—and how?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree_02" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">City Governments use it to identify weaknesses, align budgets, and plan transformation.
-National Agencies use it to guide equitable resource allocation.
-Philanthropies and Impact Funds use it to target high-leverage points of reform.
-Universities and Researchers use it to test hypotheses about complex urban systems.
-Citizens and Civic Movements use it to hold leaders accountable with evidence, not slogans.
-In short, every stakeholder who shapes a city can use VUI as a mirror and a map.
-</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree_03" aria-expanded="false"
-                                    aria-controls="flush-collapseThree_03">
-                                    How can universities and research institutions engage with it?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree_03" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">The VUI is a laboratory of complexity for scholars and students of cities. Universities can adopt it to teach systems thinking, urban analytics, and governance design. Its multidimensional datasets support research on resilience, inequality, identity, and sustainability. Academic partners can pilot the Index in local cities, run data labs, or use it as a policy-learning tool that bridges theory and municipal practice.</div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree_04" aria-expanded="false"
-                                    aria-controls="flush-collapseThree_04">
-                                    How can philanthropic organizations use the Index?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree_04" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Philanthropies can use the VUI as a strategic targeting framework. Instead of funding isolated projects, they can identify systemic leverage points—where a small investment produces cascading benefits across multiple sectors. The Index helps funders move from charity to structural change, from good intentions to measurable transformation.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree_05" aria-expanded="false"
-                                    aria-controls="flush-collapseThree_05">
-                                    How does it connect to global frameworks like the SDGs and Agenda 2063?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree_05" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">The VUI operationalizes the global frameworks of SDG 11 (Sustainable Cities), SDG 16 (Peace, Justice, and Institutions), and the African Union’s Agenda 2063. It translates these goals into quantifiable, local measures—bridging the gap between aspiration and implementation. The Index allows cities to demonstrate compliance through performance, not paperwork.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree_06" aria-expanded="false"
-                                    aria-controls="flush-collapseThree_06">
-                                    Is the VUI a ranking system?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree_06" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">No. The Veridian Urban Index rejects competitive ranking. Cities are categorized into developmental zones—Fragmented, Emergent, Integrated, and Coherent—to show where they stand in their transformation journey. It is designed to inspire learning and self-correction, not rivalry.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree_07" aria-expanded="false"
-                                    aria-controls="flush-collapseThree_07">
-                                    Can it be adapted to cities of different scales and capacities?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree_07" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Yes. The VUI is modular, scalable, and context-sensitive. It works for large metropolitan systems, post-conflict towns, or emerging cities in transition. Each pillar can be applied individually or in clusters, allowing cities to begin where data is strongest and expand over time. The methodology is flexible, but the principles—coherence, integrity, interdependence—remain universal.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree_08" aria-expanded="false"
-                                    aria-controls="flush-collapseThree_08">
-                                    How is scoring kept credible and consistent?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree_08" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Each assessment uses a seven-level scoring framework, supported by calibration tools, evaluator training, and traceable scoring logs. AI-powered cross-checks ensure internal consistency while leaving interpretation in human hands. The VUI’s credibility rests on a simple rule: technology assists judgment, but wisdom interprets the city.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree_09" aria-expanded="false"
-                                    aria-controls="flush-collapseThree_09">
-                                    What is the ultimate vision behind the Veridian Urban Index?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree_09" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">To redefine how humanity understands its cities. The VUI’s City-360° model is not about perfection—it is about coherence. It teaches that every city is a living equation of governance, memory, trust, and infrastructure. By testing every system within one architecture, the VUI gives cities the intelligence to act with unity, humility, and foresight. It is not just an index—it is the urban mind made visible.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<app-frequently-ask-questions></app-frequently-ask-questions>
 
 <section class="transform">
     <div class="container-xxl">

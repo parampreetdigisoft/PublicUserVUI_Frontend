@@ -1,0 +1,93 @@
+import { Component, input, OnInit } from '@angular/core';
+import { PartnerCityResponseDto } from '../../../../core/models/PartnerCityHistoryResponseDto';
+import { environment } from '../../../../../environments/environment';
+import { AgChartOptions } from 'ag-charts-community';
+import { AgCharts } from 'ag-charts-angular';
+@Component({
+  selector: 'app-view-parter-city',
+  imports: [AgCharts],
+  templateUrl: './view-parter-city.html',
+  styleUrl: './view-parter-city.css'
+})
+export class ViewParterCity implements OnInit {
+
+  cityDetail = input.required<PartnerCityResponseDto>();
+  urlBase = environment.apiUrl;
+  // Chart Options
+  public options!: AgChartOptions;
+  constructor() {
+    
+  }
+
+  ngOnInit(): void {
+    const score = this.cityDetail().score;
+    const highScore = this.cityDetail().highScore * 100 /4;
+    const progress = this.cityDetail().progress;
+    const lowerScore = this.cityDetail().lowerScore;
+
+    // Minimum display value for zero scores
+    const minDisplay = 1.5;
+
+    this.options = {
+      series: [
+        {
+          type: 'donut',
+          data: [
+            { type: 'highScore', value: highScore || minDisplay, actualValue: highScore },
+            { type: '', value: 100 - (highScore || minDisplay) }
+          ],
+          angleKey: 'value',
+          innerRadiusRatio: 0.55,
+          outerRadiusRatio: 0.7,
+          fills: ['#bbff3d', '#FFFFFF'],
+          showInLegend: false,
+          calloutLabelKey: 'type'
+        },
+        {
+          type: 'donut',
+          data: [
+            { type: 'progress', value: progress || minDisplay, actualValue: progress },
+            { type: '', value: 100 - (progress || minDisplay) }
+          ],
+          angleKey: 'value',
+          innerRadiusRatio: 0.35,
+          outerRadiusRatio: 0.5,
+          fills: ['#f2f542', '#FFFFFF'],
+          showInLegend: false,
+          calloutLabelKey: 'type'
+        },
+        {
+          type: 'donut',
+          data: [
+            { type: 'lowerScore', value: lowerScore || minDisplay, actualValue: lowerScore },
+            { type: '', value: 100 - (lowerScore || minDisplay) }
+          ],
+          angleKey: 'value',
+          innerRadiusRatio: 0.15,
+          outerRadiusRatio: 0.3,
+          fills: ['#1a5c48', '#FFFFFF'],
+          showInLegend: false,
+          calloutLabelKey: 'type',
+          tooltip: {
+            enabled: false,
+            renderer: params => {
+              console.log(params);
+              // Show actual value on hover
+              const data = params.datum as any;
+              return `${data.type || ''}: ${data.actualValue ?? 0}`;
+            }
+          }
+        },
+      ],
+      legend: { enabled: false },
+      gradientLegend:{enabled:true,position:'bottom'},
+      title: { text: '' },
+      subtitle: { text: '' }
+    };
+  }
+
+  onImgError(event: Event) {
+    (event.target as HTMLImageElement).src = '../../../../Frame 1321315029.png';
+  }
+}
+

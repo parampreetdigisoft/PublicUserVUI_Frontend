@@ -15,42 +15,45 @@
 
                 <div class="select_fiels">
                     <div class="input_field">
-                        <ng-select [items]="countries" bindValue="country" bindLabel="country"
-                            [placeholder]="filterForm.get('country')?.value ? '' : 'Select Country'" [searchable]="true" [clearable]="true"
-                            formControlName="country" (change)="onCountryChange($event)">
-                        </ng-select>
-                    </div>
-                </div>
-
-
-                <div class="select_fiels">
-                    <div class="input_field">
-                        <ng-select [items]="regions" [placeholder]="filterForm.get('pillar')?.value ? '' : 'Select Region'" [searchable]="true" [clearable]="true"
-                            formControlName="region">
-                        </ng-select>
-                    </div>
-                   
-                </div>
-
-                <div class="select_fiels">
-                    <div class="input_field">
-                        <ng-select [items]="cities" [placeholder]="filterForm.get('city')?.value ? '' : 'Select City'" [searchable]="true" [clearable]="true"
-                            formControlName="city">
+                        <ng-select [items]="filterData()?.countries || []"
+                            [placeholder]="filterForm.get('country')?.value ? '' : 'Select Country'" [searchable]="true"
+                            [clearable]="true" formControlName="country" (change)="onCountryChange($event)">
                         </ng-select>
                     </div>
                 </div>
 
                 <div class="select_fiels">
                     <div class="input_field">
-                        <ng-select [items]="pillars" [placeholder]="filterForm.get('pillar')?.value ? '' : 'Select Pillar'" [searchable]="true" [clearable]="true"
-                            formControlName="pillar">
+                        <ng-select [items]="filterData()?.regions || []"
+                            [placeholder]="filterForm.get('region')?.value ? '' : 'Select Region'" [searchable]="true"
+                            [clearable]="true" formControlName="region">
                         </ng-select>
                     </div>
-                   
+
+                </div>
+
+                <div class="select_fiels">
+                    <div class="input_field">
+                        <ng-select [items]="filterData()?.cities || []" bindValue="cityID" bindLabel="cityName"
+                            [placeholder]="filterForm.get('city')?.value ? '' : 'Select City'" [searchable]="true"
+                            [clearable]="true" formControlName="city">
+                        </ng-select>
+                    </div>
+                </div>
+
+                <div class="select_fiels">
+                    <div class="input_field">
+                        <ng-select [items]="pillars" bindValue="pillarID" bindLabel="pillarName"
+                            [placeholder]="filterForm.get('pillar')?.value ? '' : 'Select Pillar'" [searchable]="true"
+                            [clearable]="true" formControlName="pillar">
+                        </ng-select>
+                    </div>
+
                 </div>
 
                 <div class="cities-link">
-                    <button type="button" class="btn link2" (click)="onSearch()">Search</button>
+                    <button type="button" class="btn link2" (click)="onSearch(true)">Search <span *ngIf="loading()"
+                            class="spinner-border spinner-border-sm ms-2"> </span></button>
                 </div>
             </div>
 
@@ -61,298 +64,24 @@
 <section class="Melbourne">
     <div class="container-xxl">
         <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="Melbourne-cards">
-                    <div class="position-relative">
-                        <img src="../../../../Frame 1321315029.png" alt="" srcset="">
-                        <div class="score">
-                            Total Score: 85
-                        </div>
-                    </div>
-
-                    <div class="melbourne-card-text">
-                        <h1 class="Melbourne-cards-h1">Melbourne</h1>
-                        <p class="Melbourne-cards-p"> <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
-                                viewBox="0 0 17 17" fill="none">
-                                <path
-                                    d="M8.5 4.28955C7.97464 4.28955 7.46108 4.44534 7.02427 4.73721C6.58745 5.02908 6.24699 5.44393 6.04594 5.9293C5.8449 6.41466 5.7923 6.94875 5.89479 7.46401C5.99728 7.97927 6.25026 8.45257 6.62175 8.82405C6.99323 9.19554 7.46653 9.44852 7.98179 9.55101C8.49705 9.6535 9.03114 9.6009 9.5165 9.39986C10.0019 9.19881 10.4167 8.85835 10.7086 8.42153C11.0005 7.98472 11.1562 7.47116 11.1562 6.9458C11.1562 6.24132 10.8764 5.56569 10.3783 5.06755C9.88011 4.5694 9.20448 4.28955 8.5 4.28955ZM8.5 8.53955C8.18479 8.53955 7.87665 8.44608 7.61456 8.27096C7.35247 8.09583 7.14819 7.84692 7.02757 7.5557C6.90694 7.26448 6.87538 6.94403 6.93687 6.63488C6.99837 6.32572 7.15016 6.04174 7.37305 5.81885C7.59594 5.59596 7.87992 5.44417 8.18907 5.38267C8.49823 5.32118 8.81868 5.35274 9.1099 5.47337C9.40112 5.59399 9.65003 5.79827 9.82516 6.06036C10.0003 6.32245 10.0938 6.63059 10.0938 6.9458C10.0938 7.36849 9.92584 7.77387 9.62695 8.07275C9.32807 8.37164 8.92269 8.53955 8.5 8.53955ZM8.5 1.10205C6.95068 1.10381 5.46532 1.72005 4.36979 2.81559C3.27425 3.91112 2.65801 5.39648 2.65625 6.9458C2.65625 9.03096 3.6198 11.241 5.44531 13.3374C6.26558 14.2847 7.18878 15.1378 8.19785 15.8808C8.28718 15.9433 8.39359 15.9769 8.50266 15.9769C8.61172 15.9769 8.71814 15.9433 8.80746 15.8808C9.81468 15.1375 10.7361 14.2844 11.5547 13.3374C13.3775 11.241 14.3438 9.03096 14.3438 6.9458C14.342 5.39648 13.7257 3.91112 12.6302 2.81559C11.5347 1.72005 10.0493 1.10381 8.5 1.10205ZM8.5 14.7817C7.4023 13.9185 3.71875 10.7476 3.71875 6.9458C3.71875 5.67773 4.22249 4.4616 5.11915 3.56495C6.0158 2.66829 7.23193 2.16455 8.5 2.16455C9.76807 2.16455 10.9842 2.66829 11.8809 3.56495C12.7775 4.4616 13.2812 5.67773 13.2812 6.9458C13.2812 10.7462 9.5977 13.9185 8.5 14.7817Z"
-                                    fill="#1D1D1D" />
-                            </svg>Australia, Asia Pacific</p>
-                        <p class="Melbourne-cards-p1">It is a long established fact that a reader will be distracted
-                            by
-                            the readable content of a page when looking at its layout</p>
-                        <div class="process-box">
-                            <div class="process-image">
-                                <img src="../../../../Group 38.png" alt="" srcset="">
-                            </div>
-
-                            <div class="process-content">
-                                <ul class="process-box-ul">
-                                    <li>
-                                        <span class="dot"></span>
-                                        <span class="process-box-li"> Environmental</span>
-                                        <span class="process-box-p">20</span>
-                                    </li>
-                                    <li>
-                                        <span class="dot2"></span>
-                                        <span class="process-box-li"> Social</span>
-                                        <span class="process-box-p">40</span>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="process-content">
-
-                                <ul class="process-box-ul">
-                                    <li>
-                                        <span class="dot3"></span>
-                                        <span class="process-box-li"> Economics</span>
-                                        <span class="process-box-p">20</span>
-                                    </li>
-                                    <li>
-                                        <span class="dot4"></span>
-                                        <span class="process-box-li"> Governancel</span>
-                                        <span class="process-box-p">40</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- <div class="card-link">
-                            <a href="void::javascript(0)" class="banner-link1 hover_on_white">Download Summary Report <svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
-                                    fill="none">
-                                    <path
-                                        d="M17.5 11.7135V16.7135C17.5 16.8793 17.4342 17.0382 17.3169 17.1554C17.1997 17.2727 17.0408 17.3385 16.875 17.3385H3.125C2.95924 17.3385 2.80027 17.2727 2.68306 17.1554C2.56585 17.0382 2.5 16.8793 2.5 16.7135V11.7135C2.5 11.5477 2.56585 11.3888 2.68306 11.2716C2.80027 11.1543 2.95924 11.0885 3.125 11.0885C3.29076 11.0885 3.44973 11.1543 3.56694 11.2716C3.68415 11.3888 3.75 11.5477 3.75 11.7135V16.0885H16.25V11.7135C16.25 11.5477 16.3158 11.3888 16.4331 11.2716C16.5503 11.1543 16.7092 11.0885 16.875 11.0885C17.0408 11.0885 17.1997 11.1543 17.3169 11.2716C17.4342 11.3888 17.5 11.5477 17.5 11.7135ZM9.55781 12.1557C9.61586 12.2138 9.68479 12.2599 9.76066 12.2914C9.83654 12.3228 9.91787 12.339 10 12.339C10.0821 12.339 10.1635 12.3228 10.2393 12.2914C10.3152 12.2599 10.3841 12.2138 10.4422 12.1557L13.5672 9.03069C13.6253 8.97262 13.6713 8.90368 13.7027 8.82781C13.7342 8.75194 13.7503 8.67062 13.7503 8.5885C13.7503 8.50638 13.7342 8.42506 13.7027 8.34919C13.6713 8.27332 13.6253 8.20438 13.5672 8.14631C13.5091 8.08824 13.4402 8.04218 13.3643 8.01076C13.2884 7.97933 13.2071 7.96315 13.125 7.96315C13.0429 7.96315 12.9616 7.97933 12.8857 8.01076C12.8098 8.04218 12.7409 8.08824 12.6828 8.14631L10.625 10.2049V2.9635C10.625 2.79774 10.5592 2.63877 10.4419 2.52156C10.3247 2.40435 10.1658 2.3385 10 2.3385C9.83424 2.3385 9.67527 2.40435 9.55806 2.52156C9.44085 2.63877 9.375 2.79774 9.375 2.9635V10.2049L7.31719 8.14631C7.19991 8.02904 7.04085 7.96315 6.875 7.96315C6.70915 7.96315 6.55009 8.02904 6.43281 8.14631C6.31554 8.26359 6.24965 8.42265 6.24965 8.5885C6.24965 8.75435 6.31554 8.91341 6.43281 9.03069L9.55781 12.1557Z"
-                                        fill="#304A43" />
-                                </svg></a>
-                        </div> -->
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="Melbourne-cards">
-                    <div class="position-relative">
-                        <img src="../../../../Frame 1321315029.png" alt="" srcset="">
-                        <div class="score">
-                            Total Score: 85
-                        </div>
-                    </div>
-
-                    <div class="melbourne-card-text">
-                        <h1 class="Melbourne-cards-h1">Melbourne</h1>
-                        <p class="Melbourne-cards-p"> <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
-                                viewBox="0 0 17 17" fill="none">
-                                <path
-                                    d="M8.5 4.28955C7.97464 4.28955 7.46108 4.44534 7.02427 4.73721C6.58745 5.02908 6.24699 5.44393 6.04594 5.9293C5.8449 6.41466 5.7923 6.94875 5.89479 7.46401C5.99728 7.97927 6.25026 8.45257 6.62175 8.82405C6.99323 9.19554 7.46653 9.44852 7.98179 9.55101C8.49705 9.6535 9.03114 9.6009 9.5165 9.39986C10.0019 9.19881 10.4167 8.85835 10.7086 8.42153C11.0005 7.98472 11.1562 7.47116 11.1562 6.9458C11.1562 6.24132 10.8764 5.56569 10.3783 5.06755C9.88011 4.5694 9.20448 4.28955 8.5 4.28955ZM8.5 8.53955C8.18479 8.53955 7.87665 8.44608 7.61456 8.27096C7.35247 8.09583 7.14819 7.84692 7.02757 7.5557C6.90694 7.26448 6.87538 6.94403 6.93687 6.63488C6.99837 6.32572 7.15016 6.04174 7.37305 5.81885C7.59594 5.59596 7.87992 5.44417 8.18907 5.38267C8.49823 5.32118 8.81868 5.35274 9.1099 5.47337C9.40112 5.59399 9.65003 5.79827 9.82516 6.06036C10.0003 6.32245 10.0938 6.63059 10.0938 6.9458C10.0938 7.36849 9.92584 7.77387 9.62695 8.07275C9.32807 8.37164 8.92269 8.53955 8.5 8.53955ZM8.5 1.10205C6.95068 1.10381 5.46532 1.72005 4.36979 2.81559C3.27425 3.91112 2.65801 5.39648 2.65625 6.9458C2.65625 9.03096 3.6198 11.241 5.44531 13.3374C6.26558 14.2847 7.18878 15.1378 8.19785 15.8808C8.28718 15.9433 8.39359 15.9769 8.50266 15.9769C8.61172 15.9769 8.71814 15.9433 8.80746 15.8808C9.81468 15.1375 10.7361 14.2844 11.5547 13.3374C13.3775 11.241 14.3438 9.03096 14.3438 6.9458C14.342 5.39648 13.7257 3.91112 12.6302 2.81559C11.5347 1.72005 10.0493 1.10381 8.5 1.10205ZM8.5 14.7817C7.4023 13.9185 3.71875 10.7476 3.71875 6.9458C3.71875 5.67773 4.22249 4.4616 5.11915 3.56495C6.0158 2.66829 7.23193 2.16455 8.5 2.16455C9.76807 2.16455 10.9842 2.66829 11.8809 3.56495C12.7775 4.4616 13.2812 5.67773 13.2812 6.9458C13.2812 10.7462 9.5977 13.9185 8.5 14.7817Z"
-                                    fill="#1D1D1D" />
-                            </svg>Australia, Asia Pacific</p>
-                        <p class="Melbourne-cards-p1">It is a long established fact that a reader will be distracted
-                            by
-                            the readable content of a page when looking at its layout</p>
-                        <div class="process-box">
-                            <div class="process-image">
-                                <img src="../../../../Group 38.png" alt="" srcset="">
-                            </div>
-
-                            <div class="process-content">
-                                <ul class="process-box-ul">
-                                    <li>
-                                        <span class="dot"></span>
-                                        <span class="process-box-li"> Environmental</span>
-                                        <span class="process-box-p">20</span>
-                                    </li>
-                                    <li>
-                                        <span class="dot2"></span>
-                                        <span class="process-box-li"> Social</span>
-                                        <span class="process-box-p">40</span>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="process-content">
-
-                                <ul class="process-box-ul">
-                                    <li>
-                                        <span class="dot3"></span>
-                                        <span class="process-box-li"> Economics</span>
-                                        <span class="process-box-p">20</span>
-                                    </li>
-                                    <li>
-                                        <span class="dot4"></span>
-                                        <span class="process-box-li"> Governancel</span>
-                                        <span class="process-box-p">40</span>
-                                    </li>
-
-                                </ul>
-
-                            </div>
-                        </div>
-
-                        <!-- <div class="card-link">
-
-
-                            <a href="void::javascript(0)" class="banner-link1 hover_on_white">Download Summary Report <svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
-                                    fill="none">
-                                    <path
-                                        d="M17.5 11.7135V16.7135C17.5 16.8793 17.4342 17.0382 17.3169 17.1554C17.1997 17.2727 17.0408 17.3385 16.875 17.3385H3.125C2.95924 17.3385 2.80027 17.2727 2.68306 17.1554C2.56585 17.0382 2.5 16.8793 2.5 16.7135V11.7135C2.5 11.5477 2.56585 11.3888 2.68306 11.2716C2.80027 11.1543 2.95924 11.0885 3.125 11.0885C3.29076 11.0885 3.44973 11.1543 3.56694 11.2716C3.68415 11.3888 3.75 11.5477 3.75 11.7135V16.0885H16.25V11.7135C16.25 11.5477 16.3158 11.3888 16.4331 11.2716C16.5503 11.1543 16.7092 11.0885 16.875 11.0885C17.0408 11.0885 17.1997 11.1543 17.3169 11.2716C17.4342 11.3888 17.5 11.5477 17.5 11.7135ZM9.55781 12.1557C9.61586 12.2138 9.68479 12.2599 9.76066 12.2914C9.83654 12.3228 9.91787 12.339 10 12.339C10.0821 12.339 10.1635 12.3228 10.2393 12.2914C10.3152 12.2599 10.3841 12.2138 10.4422 12.1557L13.5672 9.03069C13.6253 8.97262 13.6713 8.90368 13.7027 8.82781C13.7342 8.75194 13.7503 8.67062 13.7503 8.5885C13.7503 8.50638 13.7342 8.42506 13.7027 8.34919C13.6713 8.27332 13.6253 8.20438 13.5672 8.14631C13.5091 8.08824 13.4402 8.04218 13.3643 8.01076C13.2884 7.97933 13.2071 7.96315 13.125 7.96315C13.0429 7.96315 12.9616 7.97933 12.8857 8.01076C12.8098 8.04218 12.7409 8.08824 12.6828 8.14631L10.625 10.2049V2.9635C10.625 2.79774 10.5592 2.63877 10.4419 2.52156C10.3247 2.40435 10.1658 2.3385 10 2.3385C9.83424 2.3385 9.67527 2.40435 9.55806 2.52156C9.44085 2.63877 9.375 2.79774 9.375 2.9635V10.2049L7.31719 8.14631C7.19991 8.02904 7.04085 7.96315 6.875 7.96315C6.70915 7.96315 6.55009 8.02904 6.43281 8.14631C6.31554 8.26359 6.24965 8.42265 6.24965 8.5885C6.24965 8.75435 6.31554 8.91341 6.43281 9.03069L9.55781 12.1557Z"
-                                        fill="#304A43" />
-                                </svg></a>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="Melbourne-cards">
-                    <div class="position-relative">
-                        <img src="../../../../Frame 1321315029.png" alt="" srcset="">
-                        <div class="score">
-                            Total Score: 85
-                        </div>
-                    </div>
-
-                    <div class="melbourne-card-text">
-                        <h1 class="Melbourne-cards-h1">Melbourne</h1>
-                        <p class="Melbourne-cards-p"> <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
-                                viewBox="0 0 17 17" fill="none">
-                                <path
-                                    d="M8.5 4.28955C7.97464 4.28955 7.46108 4.44534 7.02427 4.73721C6.58745 5.02908 6.24699 5.44393 6.04594 5.9293C5.8449 6.41466 5.7923 6.94875 5.89479 7.46401C5.99728 7.97927 6.25026 8.45257 6.62175 8.82405C6.99323 9.19554 7.46653 9.44852 7.98179 9.55101C8.49705 9.6535 9.03114 9.6009 9.5165 9.39986C10.0019 9.19881 10.4167 8.85835 10.7086 8.42153C11.0005 7.98472 11.1562 7.47116 11.1562 6.9458C11.1562 6.24132 10.8764 5.56569 10.3783 5.06755C9.88011 4.5694 9.20448 4.28955 8.5 4.28955ZM8.5 8.53955C8.18479 8.53955 7.87665 8.44608 7.61456 8.27096C7.35247 8.09583 7.14819 7.84692 7.02757 7.5557C6.90694 7.26448 6.87538 6.94403 6.93687 6.63488C6.99837 6.32572 7.15016 6.04174 7.37305 5.81885C7.59594 5.59596 7.87992 5.44417 8.18907 5.38267C8.49823 5.32118 8.81868 5.35274 9.1099 5.47337C9.40112 5.59399 9.65003 5.79827 9.82516 6.06036C10.0003 6.32245 10.0938 6.63059 10.0938 6.9458C10.0938 7.36849 9.92584 7.77387 9.62695 8.07275C9.32807 8.37164 8.92269 8.53955 8.5 8.53955ZM8.5 1.10205C6.95068 1.10381 5.46532 1.72005 4.36979 2.81559C3.27425 3.91112 2.65801 5.39648 2.65625 6.9458C2.65625 9.03096 3.6198 11.241 5.44531 13.3374C6.26558 14.2847 7.18878 15.1378 8.19785 15.8808C8.28718 15.9433 8.39359 15.9769 8.50266 15.9769C8.61172 15.9769 8.71814 15.9433 8.80746 15.8808C9.81468 15.1375 10.7361 14.2844 11.5547 13.3374C13.3775 11.241 14.3438 9.03096 14.3438 6.9458C14.342 5.39648 13.7257 3.91112 12.6302 2.81559C11.5347 1.72005 10.0493 1.10381 8.5 1.10205ZM8.5 14.7817C7.4023 13.9185 3.71875 10.7476 3.71875 6.9458C3.71875 5.67773 4.22249 4.4616 5.11915 3.56495C6.0158 2.66829 7.23193 2.16455 8.5 2.16455C9.76807 2.16455 10.9842 2.66829 11.8809 3.56495C12.7775 4.4616 13.2812 5.67773 13.2812 6.9458C13.2812 10.7462 9.5977 13.9185 8.5 14.7817Z"
-                                    fill="#1D1D1D" />
-                            </svg>Australia, Asia Pacific</p>
-                        <p class="Melbourne-cards-p1">It is a long established fact that a reader will be distracted
-                            by
-                            the readable content of a page when looking at its layout</p>
-                        <div class="process-box">
-                            <div class="process-image">
-                                <img src="../../../../Group 38.png" alt="" srcset="">
-                            </div>
-
-                            <div class="process-content">
-                                <ul class="process-box-ul">
-                                    <li>
-                                        <span class="dot"></span>
-                                        <span class="process-box-li"> Environmental</span>
-                                        <span class="process-box-p">20</span>
-                                    </li>
-                                    <li>
-                                        <span class="dot2"></span>
-                                        <span class="process-box-li"> Social</span>
-                                        <span class="process-box-p">40</span>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="process-content">
-
-                                <ul class="process-box-ul">
-                                    <li>
-                                        <span class="dot3"></span>
-                                        <span class="process-box-li"> Economics</span>
-                                        <span class="process-box-p">20</span>
-                                    </li>
-                                    <li>
-                                        <span class="dot4"></span>
-                                        <span class="process-box-li"> Governancel</span>
-                                        <span class="process-box-p">40</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- <div class="card-link">
-                            <a href="void::javascript(0)" class="banner-link1 hover_on_white">Download Summary Report <svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
-                                    fill="none">
-                                    <path
-                                        d="M17.5 11.7135V16.7135C17.5 16.8793 17.4342 17.0382 17.3169 17.1554C17.1997 17.2727 17.0408 17.3385 16.875 17.3385H3.125C2.95924 17.3385 2.80027 17.2727 2.68306 17.1554C2.56585 17.0382 2.5 16.8793 2.5 16.7135V11.7135C2.5 11.5477 2.56585 11.3888 2.68306 11.2716C2.80027 11.1543 2.95924 11.0885 3.125 11.0885C3.29076 11.0885 3.44973 11.1543 3.56694 11.2716C3.68415 11.3888 3.75 11.5477 3.75 11.7135V16.0885H16.25V11.7135C16.25 11.5477 16.3158 11.3888 16.4331 11.2716C16.5503 11.1543 16.7092 11.0885 16.875 11.0885C17.0408 11.0885 17.1997 11.1543 17.3169 11.2716C17.4342 11.3888 17.5 11.5477 17.5 11.7135ZM9.55781 12.1557C9.61586 12.2138 9.68479 12.2599 9.76066 12.2914C9.83654 12.3228 9.91787 12.339 10 12.339C10.0821 12.339 10.1635 12.3228 10.2393 12.2914C10.3152 12.2599 10.3841 12.2138 10.4422 12.1557L13.5672 9.03069C13.6253 8.97262 13.6713 8.90368 13.7027 8.82781C13.7342 8.75194 13.7503 8.67062 13.7503 8.5885C13.7503 8.50638 13.7342 8.42506 13.7027 8.34919C13.6713 8.27332 13.6253 8.20438 13.5672 8.14631C13.5091 8.08824 13.4402 8.04218 13.3643 8.01076C13.2884 7.97933 13.2071 7.96315 13.125 7.96315C13.0429 7.96315 12.9616 7.97933 12.8857 8.01076C12.8098 8.04218 12.7409 8.08824 12.6828 8.14631L10.625 10.2049V2.9635C10.625 2.79774 10.5592 2.63877 10.4419 2.52156C10.3247 2.40435 10.1658 2.3385 10 2.3385C9.83424 2.3385 9.67527 2.40435 9.55806 2.52156C9.44085 2.63877 9.375 2.79774 9.375 2.9635V10.2049L7.31719 8.14631C7.19991 8.02904 7.04085 7.96315 6.875 7.96315C6.70915 7.96315 6.55009 8.02904 6.43281 8.14631C6.31554 8.26359 6.24965 8.42265 6.24965 8.5885C6.24965 8.75435 6.31554 8.91341 6.43281 9.03069L9.55781 12.1557Z"
-                                        fill="#304A43" />
-                                </svg></a>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
+            <ng-container *ngFor="let cityDetail of citiesResponse()">
+                <app-view-parter-city [cityDetail]="cityDetail"></app-view-parter-city>
+            </ng-container>
         </div>
-        <div class="text-center mt-5">
-                <a href="void::javascript(0)" routerLink="/index-methodology"
-                    class="banner-link1 hover_on_white">Show More Cities <svg xmlns="http://www.w3.org/2000/svg"
-                        width="18" height="16" viewBox="0 0 18 16" fill="none">
-                        <path
-                            d="M0.500002 8C0.500002 8.18785 0.574627 8.36802 0.70746 8.50085C0.840294 8.63368 1.02046 8.70831 1.20831 8.70831H15.0814L9.91521 13.8737C9.8494 13.9395 9.7972 14.0176 9.76158 14.1036C9.72597 14.1896 9.70764 14.2817 9.70764 14.3748C9.70764 14.4679 9.72597 14.56 9.76158 14.646C9.7972 14.732 9.8494 14.8101 9.91521 14.8759C9.98102 14.9417 10.0591 14.9939 10.1451 15.0295C10.2311 15.0652 10.3233 15.0835 10.4163 15.0835C10.5094 15.0835 10.6016 15.0652 10.6876 15.0295C10.7735 14.9939 10.8517 14.9417 10.9175 14.8759L17.2923 8.50113C17.3581 8.43535 17.4104 8.35723 17.446 8.27124C17.4817 8.18525 17.5 8.09308 17.5 8C17.5 7.90692 17.4817 7.81475 17.446 7.72876C17.4104 7.64277 17.3581 7.56465 17.2923 7.49887L10.9175 1.12408C10.7846 0.991171 10.6043 0.916504 10.4163 0.916504C10.2284 0.916504 10.0481 0.991171 9.91521 1.12408C9.7823 1.25699 9.70764 1.43725 9.70764 1.62521C9.70764 1.81317 9.7823 1.99343 9.91521 2.12634L15.0814 7.29169H1.20831C1.02046 7.29169 0.840294 7.36631 0.70746 7.49915C0.574627 7.63198 0.500002 7.81214 0.500002 8Z"
-                            fill="#304A43"></path>
-                    </svg></a>
-            </div>
-    </div>
-</section>
-<section class="faq_section">
-    <div class="container-xxl">
-        <h4 class="common_head_white">Frequently asked questions</h4>
-        <p class="common_sub_head_white">It is a long established fact that a reader will be distracted by the
-            readable content of a page when looking at its layout.</p>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="custom_accordian mt-5">
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseOne" aria-expanded="true"
-                                    aria-controls="flush-collapseOne">
-                                    What is the Urban Sustainability and Vitality Index (VUI’s)
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse show"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">It is a long established fact that a reader will be
-                                    distracted by the readable content of a page when looking at its layout. The
-                                    point of using Lorem Ipsum is that it has a more-or-less normal distribution of
-                                    letters, as opposed to using 'Content here, content here', making it look like
-                                    readable English. Many desktop publishing packages and web page editors now use
-                                    Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will
-                                    uncover many web sites still in their infancy. Various versions have evolved
-                                    over the years, sometimes by accident, sometimes on purpose (injected humour and
-                                    the like).</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                    aria-controls="flush-collapseTwo">
-                                    Which cities or regions is the VUI’s primarily designed to support?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is
-                                    intended to demonstrate the <code>.accordion-flush</code> class. This is the
-                                    second item’s accordion body. Let’s imagine this being filled with some actual
-                                    content.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                    aria-controls="flush-collapseThree">
-                                    What are the key dimensions measured by the VUI’s?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is
-                                    intended to demonstrate the <code>.accordion-flush</code> class. This is the
-                                    third item’s accordion body. Nothing more exciting happening here in terms of
-                                    content, but just filling up the space to make it look, at least at first
-                                    glance, a bit more representative of how this would look in a real-world
-                                    application.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="text-center mt-5" *ngIf="showMore()">
+            <a href="void::javascript(0)" (click)="onSearch()" class="banner-link1 hover_on_white">Show More Cities
+                <span *ngIf="loading()" class="spinner-border spinner-border-sm ms-2"> </span><svg
+                    xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
+                    <path
+                        d="M0.500002 8C0.500002 8.18785 0.574627 8.36802 0.70746 8.50085C0.840294 8.63368 1.02046 8.70831 1.20831 8.70831H15.0814L9.91521 13.8737C9.8494 13.9395 9.7972 14.0176 9.76158 14.1036C9.72597 14.1896 9.70764 14.2817 9.70764 14.3748C9.70764 14.4679 9.72597 14.56 9.76158 14.646C9.7972 14.732 9.8494 14.8101 9.91521 14.8759C9.98102 14.9417 10.0591 14.9939 10.1451 15.0295C10.2311 15.0652 10.3233 15.0835 10.4163 15.0835C10.5094 15.0835 10.6016 15.0652 10.6876 15.0295C10.7735 14.9939 10.8517 14.9417 10.9175 14.8759L17.2923 8.50113C17.3581 8.43535 17.4104 8.35723 17.446 8.27124C17.4817 8.18525 17.5 8.09308 17.5 8C17.5 7.90692 17.4817 7.81475 17.446 7.72876C17.4104 7.64277 17.3581 7.56465 17.2923 7.49887L10.9175 1.12408C10.7846 0.991171 10.6043 0.916504 10.4163 0.916504C10.2284 0.916504 10.0481 0.991171 9.91521 1.12408C9.7823 1.25699 9.70764 1.43725 9.70764 1.62521C9.70764 1.81317 9.7823 1.99343 9.91521 2.12634L15.0814 7.29169H1.20831C1.02046 7.29169 0.840294 7.36631 0.70746 7.49915C0.574627 7.63198 0.500002 7.81214 0.500002 8Z"
+                        fill="#304A43"></path>
+                </svg></a>
         </div>
     </div>
 </section>
+
+<app-frequently-ask-questions></app-frequently-ask-questions>
+
 <section class="transform">
     <div class="container-xxl">
         <div class="row">

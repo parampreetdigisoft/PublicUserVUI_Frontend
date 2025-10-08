@@ -29,6 +29,7 @@
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
     "@ng-select/ng-select": "^20.2.2",
+    "ag-charts-angular": "^12.2.0",
     "bootstrap": "^5.3.8",
     "ng-recaptcha-2": "^16.0.1",
     "rxjs": "~7.8.0",
