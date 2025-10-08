@@ -27,7 +27,7 @@ export class CommonService {
     }
     return years;
   }
-  goToSubscriptionApp(url:string='') {
+  goToSubscriptionApp(url:string='/auth/login'){ 
     window.open(environment.subscriptionUrl+url, '_self');
   }
 }

@@ -1,5 +1,5 @@
 
-import { AfterViewInit, Component, ElementRef, inject, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, computed, ElementRef, inject, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
@@ -9,6 +9,9 @@ import { UserRoleValue } from '../../core/models/UserRole';
 import { FrequentlyAskQuestions } from '../../shared/components/frequently-ask-questions/frequently-ask-questions';
 import { PublicService } from '../../core/services/public-service';
 import { ToasterService } from '../../core/services/toaster.service';
+import { PartnerCityResponseDto } from '../../core/models/PartnerCityHistoryResponseDto';
+import { SortDirection } from '../../core/enums/SortDirection';
+import { PartnerCityRequest } from '../../core/models/PaginationRequest';
 
 @Component({
   selector: 'app-home-component',
@@ -28,7 +31,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   pillars$ = this.pillarSubject.asObservable();
 
   @ViewChild('scrollTrack', { static: false }) trackRef!: ElementRef<HTMLDivElement>;
-
+  urlBase = environment.apiUrl;
   private animationFrameId: number = 0;
   private position: number = 0;
   private speed: number = 0.5; // pixels per frame, adjust speed
@@ -36,11 +39,39 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private publicService = inject(PublicService);
   private toaster = inject(ToasterService);
   loading = signal(false);
+  citiesResponse = signal<PartnerCityResponseDto[] | undefined>(undefined);
+
+  firstCities = computed<PartnerCityResponseDto[]>(() => {
+    let s = this.citiesResponse() ? this.citiesResponse()!.slice(0, 2) : [];
+    return s;
+  });
+
+  secondCities = computed<PartnerCityResponseDto[]>(() => {
+    let s = this.citiesResponse() ? this.citiesResponse()!.slice(2, 5) : [];
+    return s;
+  });
+  ngOnInit(): void {
+    this.getCities();
+  }
+  onImgError(event: Event) {
+    (event.target as HTMLImageElement).src = '../../../../partner_cities.jpg';
+  }
+
   loginCityUser() {
     let url = '/auth/login';
     this.common.goToSubscriptionApp(url);
   }
-
+  getCities() {
+    let payload: PartnerCityRequest = {
+      sortDirection: SortDirection.DESC,
+      sortBy: 'score',
+      pageNumber: 1,
+      pageSize: 5
+    }
+    this.publicService.GetPartnerCities(payload).subscribe(cities => {
+      this.citiesResponse.set(cities.data);
+    });
+  }
   goToSite() {
     this.common.goToSubscriptionApp();
   }
@@ -49,7 +80,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     let url = '/auth/login?role=' + UserRoleValue.Admin;
     this.common.goToSubscriptionApp(url);
   }
-  ngOnInit(): void { }
 
   ngAfterViewInit(): void {
     this.animate();
