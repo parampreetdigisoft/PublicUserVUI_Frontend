@@ -65,7 +65,7 @@
     <div class="container-xxl">
         <div class="row">
             <ng-container *ngFor="let cityDetail of citiesResponse()">
-                <app-view-parter-city [cityDetail]="cityDetail"></app-view-parter-city>
+                <app-view-parter-city [cityDetail]="cityDetail" class="col-sm-6 col-md-4"></app-view-parter-city>
             </ng-container>
         </div>
         <div class="text-center mt-5" *ngIf="showMore()">

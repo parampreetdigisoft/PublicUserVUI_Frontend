@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-md-4">
+<div class="">
     <div class="Melbourne-cards">
         <div class="position-relative">
             <img [src]="urlBase+cityDetail().image" [alt]="'city Image'" (error)="onImgError($event)">
@@ -18,12 +18,13 @@
             <p class="Melbourne-cards-p1">{{cityDetail().cityName}}, in the {{cityDetail().region}} region of
                 {{cityDetail().state}}, {{cityDetail().country}}, is actively progressing toward sustainable and
                 inclusive urban growth through continuous improvements in infrastructure and governance.</p>
-            
-            
-           <ag-charts [options]="options" style="width: 300px; height: 300px;">
-            </ag-charts>
+
+
+
             <div class="process-box">
                 <div class="process-image">
+                    <ag-charts [options]="options" style="width: 300px; height: 300px;" class="ag_chart_outter">
+                    </ag-charts>
                     <!-- <img src="../../../../Group 38.png" alt="" srcset=""> -->
 
                 </div>

@@ -26,9 +26,11 @@ export class ViewParterCity implements OnInit {
     const lowerScore = this.cityDetail().lowerScore;
 
     // Minimum display value for zero scores
-    const minDisplay = 1.5;
+    const minDisplay = 0.5;
 
     this.options = {
+      width: 120,  
+      height: 120,
       series: [
         {
           type: 'donut',
@@ -65,7 +67,7 @@ export class ViewParterCity implements OnInit {
           angleKey: 'value',
           innerRadiusRatio: 0.15,
           outerRadiusRatio: 0.3,
-          fills: ['#1a5c48', '#FFFFFF'],
+          fills: ['#c7f39eff', '#FFFFFF'],
           showInLegend: false,
           calloutLabelKey: 'type',
           tooltip: {
