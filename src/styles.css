@@ -1191,18 +1191,15 @@ width: 9rem;
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
-	text-transform: capitalize;
 }
 
 .transform-h2 {
 	color: #304A43;
 	padding-top: 1rem;
-
 	font-size: 3.5rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
-	text-transform: capitalize;
 }
 
 .tranform-link a {
@@ -1718,7 +1715,6 @@ body:has(.blog_detail_page) .cus_header
     font-style: normal;
     font-weight: 400;
     line-height: 2rem;
-    text-transform: capitalize;
     padding: 2rem 2.37rem 0rem 2.37rem;
 }
 
