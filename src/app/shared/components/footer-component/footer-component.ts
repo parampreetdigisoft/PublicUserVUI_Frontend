@@ -21,7 +21,7 @@ export class FooterComponent {
     this.common.goToSubscriptionApp();
   }
   loginAdmin() {
-    let url = '/auth/login?role=' + UserRoleValue.Admin;
+    let url = '/auth/auth/login?role=' + UserRoleValue.Admin;
     this.common.goToSubscriptionApp(url);
   }
 }
