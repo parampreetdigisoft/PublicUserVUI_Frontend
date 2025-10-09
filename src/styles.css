@@ -477,7 +477,6 @@ a {
 	font-style: normal;
 	font-weight: 600;
 	line-height: 2.4rem;
-	text-transform: capitalize;
 }
 
 .f-card-span {
@@ -487,7 +486,6 @@ a {
 	font-style: normal;
 	font-weight: 400;
 	line-height: 2rem;
-	text-transform: capitalize;
 	text-align: center;
 	margin-top: 1rem
 }
@@ -668,7 +666,6 @@ width: 9rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    text-transform: capitalize;
 }
 .plans_advantage li span
 {
@@ -2036,7 +2033,6 @@ font-size: 1.4rem;
 font-style: normal;
 font-weight: 400;
 line-height: 2.4rem;
-text-transform: capitalize;
 margin-top: 3rem;
 }
 
