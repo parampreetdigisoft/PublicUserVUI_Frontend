@@ -12,6 +12,8 @@ import { ToasterService } from '../../core/services/toaster.service';
 import { PartnerCityResponseDto } from '../../core/models/PartnerCityHistoryResponseDto';
 import { SortDirection } from '../../core/enums/SortDirection';
 import { PartnerCityRequest } from '../../core/models/PaginationRequest';
+import { StorageKeyEnum } from '../../core/enums/StorageKeyEnum';
+import { TieredAccessPlan } from '../../core/models/TieredAccessPlan';
 
 @Component({
   selector: 'app-home-component',
@@ -75,7 +77,18 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   goToSite() {
     this.common.goToSubscriptionApp();
   }
-
+  choosePlan(planValue:number ) {
+    let selectedPlan =TieredAccessPlan.Premium;
+    if(planValue==1){
+       selectedPlan= TieredAccessPlan.Basic;
+    }
+    else if(planValue==2){
+       selectedPlan= TieredAccessPlan.Standard;
+    }
+  
+    localStorage.setItem(StorageKeyEnum.SelectedPlan, selectedPlan );
+    this.common.goToSubscriptionApp();
+  }
   loginAdmin() {
     let url = '/auth/login?role=' + UserRoleValue.Admin;
     this.common.goToSubscriptionApp(url);
