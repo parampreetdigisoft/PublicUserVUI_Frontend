@@ -168,6 +168,7 @@ header.cus_header {
 
 a {
 	text-decoration: none;
+	cursor: pointer;
 }
 
 
@@ -277,7 +278,7 @@ a {
 .banner-h1 {
 	color: #FFF;
 
-	font-size: 5.4222rem;
+	font-size: 4.5rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -501,7 +502,8 @@ width: 9rem;
 
 
 .banner-image img {
-	width: 100%;
+    width: 100%;
+    border-radius: 30px;
 }
 
 .banner-image {
@@ -1159,7 +1161,6 @@ width: 9rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
-	text-transform: capitalize;
 	text-align: center;
 }
 
@@ -1209,7 +1210,6 @@ width: 9rem;
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
-	text-transform: capitalize;
 	border-radius: 1rem;
 	background: #304A43;
 	padding: 1rem 1.6rem;
@@ -1566,7 +1566,6 @@ body:has(.blog_detail_page) .cus_header
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    text-transform: capitalize;
     text-align: center;
 }
 
@@ -1701,7 +1700,6 @@ body:has(.blog_detail_page) .cus_header
     font-style: normal;
     font-weight: 600;
     line-height: 2.4rem;
-    text-transform: capitalize;
     padding-top: 2rem;
     display: flex;
     flex-wrap: wrap;
