@@ -1058,8 +1058,12 @@ width: 9rem;
 }
 
 .Melbourne-cards img {
-	width: 100%;
-	display: block;
+    width: 100%;
+    display: block;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    aspect-ratio: 425/280;
+    object-fit: cover;
 }
 
 .process-box {
@@ -2084,5 +2088,17 @@ height: 100%;
 .input_field .ng-select .ng-has-value .ng-placeholder {
     display: block;
     color: #304A43 !important;
+}
+
+.process-image {
+    height: 65px !important;
+    width: 65px !important;
+	overflow: hidden;
+}
+
+.inner_chart {
+    position: relative;
+    top: -28px;
+    left: -27px;
 }
 

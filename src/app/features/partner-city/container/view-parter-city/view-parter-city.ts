@@ -41,7 +41,7 @@ export class ViewParterCity implements OnInit {
           angleKey: 'value',
           innerRadiusRatio: 0.55,
           outerRadiusRatio: 0.7,
-          fills: ['#bbff3d', '#FFFFFF'],
+          fills: ['#DDB000', '#EEE7CA'],
           showInLegend: false,
           calloutLabelKey: 'type'
         },
@@ -54,7 +54,7 @@ export class ViewParterCity implements OnInit {
           angleKey: 'value',
           innerRadiusRatio: 0.35,
           outerRadiusRatio: 0.5,
-          fills: ['#f2f542', '#FFFFFF'],
+          fills: ['#FFCB00', '#EEE7CA'],
           showInLegend: false,
           calloutLabelKey: 'type'
         },
@@ -67,7 +67,7 @@ export class ViewParterCity implements OnInit {
           angleKey: 'value',
           innerRadiusRatio: 0.15,
           outerRadiusRatio: 0.3,
-          fills: ['#f1f388ff', '#FFFFFF'],
+          fills: ['#FFDE60', '#EEE7CA'],
           showInLegend: false,
           calloutLabelKey: 'type',
           tooltip: {
