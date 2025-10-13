@@ -73,8 +73,6 @@ export class ViewParterCity implements OnInit {
           tooltip: {
             enabled: false,
             renderer: params => {
-              console.log(params);
-              // Show actual value on hover
               const data = params.datum as any;
               return `${data.type || ''}: ${data.actualValue ?? 0}`;
             }
