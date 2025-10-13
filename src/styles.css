@@ -277,7 +277,6 @@ a {
 
 .banner-h1 {
 	color: #FFF;
-
 	font-size: 4.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -2101,7 +2100,12 @@ height: 100%;
     top: -28px;
     left: -27px;
 }
-
+/* 
 .banner-text {
     max-width: 70rem;
+} */
+
+.banner-text .banner-h1 {
+    font-size: 3.8rem;
+    line-height: 1.3;
 }
