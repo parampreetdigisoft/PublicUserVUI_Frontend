@@ -45,4 +45,14 @@ export class App {
       this.showToast.set(false);
     }, 3000);
   }
+
+  isRouteLoading = true;
+
+  onRouteActivate() {
+    this.isRouteLoading = false;
+  }
+
+  onRouteDeactivate() {
+    this.isRouteLoading = true;
+  }
 }

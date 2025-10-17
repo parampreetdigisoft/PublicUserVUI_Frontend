@@ -1,9 +1,16 @@
 
 <app-hearder-component></app-hearder-component>
 
-<router-outlet></router-outlet>
+<main>
+  <router-outlet (activate)="onRouteActivate()" (deactivate)="onRouteDeactivate()"></router-outlet>
+
+  <div *ngIf="isRouteLoading" class="page-loader">
+    <div class="spinner"></div>
+  </div>
+</main>
 
 <app-footer-component></app-footer-component>
+
 
 
 @if(showToast()){
