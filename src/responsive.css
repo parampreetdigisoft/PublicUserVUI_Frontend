@@ -355,6 +355,15 @@ font-size: 1.6rem;
 .section-3-p {
     margin-bottom: 15px;
 }
+.extra_text {
+    padding-left: 0;
+}
+.head_cont {
+    margin-top: 2rem;
+}
+.scoring_range {
+    font-size: 3rem;
+}
 }
 
 @media only screen and (max-width:576px)
@@ -391,5 +400,15 @@ font-size: 1.6rem;
 .cities-link .link2 {
     padding: 1rem 2rem;
 }
-
+.single_row_design ul {
+    flex-direction: column;
+    grid-gap: 2rem;
+}
+.single_row_design ul li:nth-child(2) {
+    width: 100%;
+}
+.single_row_design ul li:first-child {
+    width: 110px;
+    min-height: 50px;
+}
 }
