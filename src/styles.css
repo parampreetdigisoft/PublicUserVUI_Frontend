@@ -2242,3 +2242,9 @@ margin-bottom: 5rem;
     z-index: 1;
     position: relative;
 }
+
+.scoring_range_head
+{
+	font-size: 1.6rem;
+    font-weight: 500;
+}
