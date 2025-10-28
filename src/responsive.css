@@ -213,6 +213,11 @@ text-align: center;
 }
 .inner_outer_plan {
     margin-bottom: 30px;
+    height: auto;
+}
+.most_popular {
+    margin-top: 0;
+    height: auto;
 }
 .plan_section {
     padding: 8rem 0 5rem 0;
