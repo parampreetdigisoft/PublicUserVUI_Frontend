@@ -2254,3 +2254,40 @@ margin-bottom: 5rem;
 {
 	margin-top: 3.6rem;;
 }
+
+.kpi_sec {
+    background-color: #304a43;
+    padding: 8rem 0;
+	background-image: url(/image\ 36.png), url(/image\ 37.png);
+	background-position: bottom left, top right;
+	background-repeat: no-repeat;
+}
+
+.kpi_sec .category_desc {
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.kpi_sec .scale-h1 {
+    margin-bottom: 2rem;
+	text-align: left;
+}
+
+
+.design_text {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #304a43;
+    font-weight: 500;
+    border: 1px solid #f1efe7;
+    padding: 2.2rem;
+    border-radius: 10px;
+    height: 100%;
+    background: #ffffff;
+}
+
+.design_text:first-letter {
+    font-size: 4rem;
+    font-weight: 700;
+	line-height: 1;
+}
