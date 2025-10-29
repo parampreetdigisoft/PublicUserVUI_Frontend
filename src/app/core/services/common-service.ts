@@ -28,6 +28,6 @@ export class CommonService {
     return years;
   }
   goToSubscriptionApp(url:string='/auth/login'){ 
-    window.open(environment.subscriptionUrl+url, '_self');
+    window.open(environment.subscriptionUrl+url, '_blank');
   }
 }
