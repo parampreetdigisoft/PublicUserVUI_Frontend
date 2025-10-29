@@ -2275,19 +2275,76 @@ margin-bottom: 5rem;
 
 
 .design_text {
+
+    border: 1px solid #f1efe7;
+    padding: 2.2rem;
+    border-radius: 10px;
+    height: auto;
+    background: #ffffff;
+}
+
+.design_text p.decs_t
+{
     font-size: 1.5rem;
     line-height: 1.5;
     color: #304a43;
     font-weight: 500;
-    border: 1px solid #f1efe7;
-    padding: 2.2rem;
-    border-radius: 10px;
-    height: 100%;
-    background: #ffffff;
 }
 
-.design_text:first-letter {
+/* .design_text p.decs_t:first-letter {
     font-size: 4rem;
     font-weight: 700;
 	line-height: 1;
+} */
+
+.cus_table .table th{
+	    background: #efbf07;
+    font-weight: 600;
+    color: #304a43;
+	padding: 1rem 1rem 1rem 1.5rem;
+	font-size: 1.4rem;
+	white-space: nowrap;
+}
+
+
+.cus_table  .score_label_tab
+{
+	    background: #304a43;
+    color: #ffffff;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.cus_table  .table td
+{
+	   padding: 1rem 1rem 1rem 1.5rem;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #cccccc;
+    vertical-align: middle;
+}
+.cus_table  .table
+{
+	margin: 0;
+}
+.cus_table
+{
+	border-radius: 1rem;
+	overflow: hidden;
+	box-shadow: 0 0 2rem #00000021;
+	height: 100%;
+}
+
+.cus_table  .table tr:last-child td
+{
+	border: 0;
+}
+
+h4.kpi_head_col {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #304a43;
 }
