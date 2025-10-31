@@ -78,16 +78,18 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.common.goToSubscriptionApp();
   }
   choosePlan(planValue:number ) {
-    let selectedPlan =TieredAccessPlan.Premium;
-    if(planValue==1){
-       selectedPlan= TieredAccessPlan.Basic;
-    }
-    else if(planValue==2){
-       selectedPlan= TieredAccessPlan.Standard;
-    }
+    // let selectedPlan =TieredAccessPlan.Premium;
+    // if(planValue==1){
+    //    selectedPlan= TieredAccessPlan.Basic;
+    // }
+    // else if(planValue==2){
+    //    selectedPlan= TieredAccessPlan.Standard;
+    // }
   
-    localStorage.setItem(StorageKeyEnum.SelectedPlan, selectedPlan );
-    this.common.goToSubscriptionApp();
+    // localStorage.setItem(StorageKeyEnum.SelectedPlan, selectedPlan );
+    // this.common.goToSubscriptionApp();
+
+    this.toaster.showInfo("Veridian Urban Systems is currently at the pilot stage. Login and subscription features are temporarily unavailable while we finalize our email and authentication system.");
   }
   loginAdmin() {
     let url = '/auth/login?role=' + UserRoleValue.Admin;
