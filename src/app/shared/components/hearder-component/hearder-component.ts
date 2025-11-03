@@ -15,8 +15,7 @@ export class HearderComponent {
   public common = inject(CommonService);
 
   loginCityUser() {
-    let url = '/auth/login';
-    this.common.goToSubscriptionApp(url);
+    this.common.goToSubscriptionApp();
   }
   
   goToSite() {

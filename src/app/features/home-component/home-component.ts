@@ -60,8 +60,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   loginCityUser() {
-    let url = '/auth/login';
-    this.common.goToSubscriptionApp(url);
+    this.common.goToSubscriptionApp();
   }
   getCities() {
     let payload: PartnerCityRequest = {
