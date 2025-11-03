@@ -18,7 +18,7 @@ export class IntexMethodology {
   loading = signal(false);
   
   loginCityUser() {
-    let url = '/auth/login';
+    let url = '/auth/cityUserlogin';
     this.common.goToSubscriptionApp(url);
   }
 
