@@ -4,19 +4,16 @@ import { UserRoleValue } from '../../core/models/UserRole';
 import { CommonModule } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { PartnerCityRequest } from '../../core/models/PaginationRequest';
-import { SortDirection } from '../../core/enums/SortDirection';
 import { PublicService } from '../../core/services/public-service';
 import { environment } from '../../../environments/environment';
 import { PartnerCityResponseDto } from '../../core/models/PartnerCityHistoryResponseDto';
 import { PillarResponseDto } from '../../core/models/PillarResponseDto';
-import { ViewParterCity } from './container/view-parter-city/view-parter-city';
 import { PartnerCityFilterResponse } from '../../core/models/PartnerCityFilterResponse';
 import { FrequentlyAskQuestions } from '../../shared/components/frequently-ask-questions/frequently-ask-questions';
 
 @Component({
   selector: 'app-partner-city',
-  imports: [CommonModule, NgSelectModule, ReactiveFormsModule, ViewParterCity,FrequentlyAskQuestions],
+  imports: [CommonModule, NgSelectModule, ReactiveFormsModule, FrequentlyAskQuestions],
   templateUrl: './partner-city.html',
   styleUrl: './partner-city.css'
 })
@@ -52,34 +49,35 @@ export class PartnerCity implements OnInit {
   }
 
   getCities() {
-    let payload: PartnerCityRequest = {
-      sortDirection: SortDirection.DESC,
-      sortBy: 'score',
-      pageNumber: this.currentPage() + 1,
-      pageSize: this.pageSize()
-    }
-    if (this.filterForm.get('pillar')?.value) {
-      payload.pillarID = this.filterForm.get('pillar')?.value;
-    }
-    if (this.filterForm.get('country')?.value) {
-      payload.country = this.filterForm.get('country')?.value;
-    }
-    if (this.filterForm.get('city')?.value) {
-      payload.cityID = this.filterForm.get('city')?.value;
-    }
-    if (this.filterForm.get('region')?.value) {
-      payload.region = this.filterForm.get('region')?.value;
-    }
+     this.loading.set(false);
+    // let payload: PartnerCityRequest = {
+    //   sortDirection: SortDirection.DESC,
+    //   sortBy: 'score',
+    //   pageNumber: this.currentPage() + 1,
+    //   pageSize: this.pageSize()
+    // }
+    // if (this.filterForm.get('pillar')?.value) {
+    //   payload.pillarID = this.filterForm.get('pillar')?.value;
+    // }
+    // if (this.filterForm.get('country')?.value) {
+    //   payload.country = this.filterForm.get('country')?.value;
+    // }
+    // if (this.filterForm.get('city')?.value) {
+    //   payload.cityID = this.filterForm.get('city')?.value;
+    // }
+    // if (this.filterForm.get('region')?.value) {
+    //   payload.region = this.filterForm.get('region')?.value;
+    // }
 
-    this.publicService.GetPartnerCities(payload).subscribe(cities => {
-      this.loading.set(false);
-      let d = this.citiesResponse() || [];
-      let data = [...d, ...cities.data];
-      this.citiesResponse.set(data);
-      this.totalRecords.set(cities.totalRecords);
-      this.currentPage.set(cities.pageNumber);
-      this.pageSize.set(cities.pageSize);
-    });
+    // this.publicService.GetPartnerCities(payload).subscribe(cities => {
+    //   this.loading.set(false);
+    //   let d = this.citiesResponse() || [];
+    //   let data = [...d, ...cities.data];
+    //   this.citiesResponse.set(data);
+    //   this.totalRecords.set(cities.totalRecords);
+    //   this.currentPage.set(cities.pageNumber);
+    //   this.pageSize.set(cities.pageSize);
+    // });
   }
   GetPartnerCitiesFilterRecord() {
     this.publicService.GetPartnerCitiesFilterRecord().subscribe({
