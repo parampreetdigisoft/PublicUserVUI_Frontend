@@ -27,7 +27,7 @@ export class CommonService {
     }
     return years;
   }
-  goToSubscriptionApp(url:string='/auth/cityUserlogin'){ 
+  goToSubscriptionApp(url:string='/auth/clientPortalLogin'){ 
     window.open(environment.subscriptionUrl+url, '_blank');
   }
 }
