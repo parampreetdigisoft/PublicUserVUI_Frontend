@@ -15,7 +15,7 @@ export const routes: Routes = [
     loadComponent: () =>import('../app/features/blog-component/blog-component').then(m => m.BlogComponent),
   },
   {
-    path: 'blog-details',
+    path: 'blog-details/:blogID',
     loadComponent: () =>import('../app/features/blog-component/container/blog-detail-component/blog-detail-component').then(m => m.BlogDetailComponent),
   },
   {
