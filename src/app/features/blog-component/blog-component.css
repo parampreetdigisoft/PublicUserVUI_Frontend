@@ -1,0 +1,16 @@
+.blog_img img {
+    aspect-ratio: 385/ 291;
+    object-fit: cover;
+}
+
+.blog_page .row > div:has(.single_blog_main) {
+    margin-bottom: 5rem;
+}
+
+.single_blog_main_small {
+    height: 100%;
+}
+
+section.blog_page {
+    padding-bottom: 5rem;
+}
