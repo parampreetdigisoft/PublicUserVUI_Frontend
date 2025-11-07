@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     return s;
   });
   ngOnInit(): void {
-    this.getCities();
+   
   }
   onImgError(event: Event) {
     (event.target as HTMLImageElement).src = '../../../../partner_cities.jpg';
