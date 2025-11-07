@@ -8,6 +8,8 @@ import { CommonService } from '../../../../core/services/common-service';
   styleUrl: './blog5.css'
 })
 export class Blog5 {
+
+private common = inject(CommonService);
   loginCityUser() {
     this.common.goToSubscriptionApp();
   }
