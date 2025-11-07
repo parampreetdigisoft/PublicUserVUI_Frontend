@@ -2,14 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CommonService } from '../../../../core/services/common-service';
 
 @Component({
-  selector: 'app-blog4',
+  selector: 'app-blog5',
   imports: [],
-  templateUrl: './blog4.html',
-  styleUrl: './blog4.css'
+  templateUrl: './blog5.html',
+  styleUrl: './blog5.css'
 })
-export class Blog4 {
-private common = inject(CommonService);
-
+export class Blog5 {
   loginCityUser() {
     this.common.goToSubscriptionApp();
   }
