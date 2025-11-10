@@ -13,11 +13,12 @@
 
 
 
-@if(showToast()){
-  <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="toast-header" class="{{toastClass}}">
+
+<div id="liveToastBtn" class="toast fade" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
   </div>
+
   <div class="toast-body">
     <svg class="warning_svg" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink" fill="#fff" stroke="#fff">
@@ -82,4 +83,3 @@
     {{toastMessage}}
   </div>
 </div>
-}
