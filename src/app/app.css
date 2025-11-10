@@ -68,3 +68,16 @@ button.btn-close {
   filter: invert(1);
   opacity: 1;
 }
+@media (max-width: 480px) {
+  .toast {
+    bottom: 15px !important;
+    min-width: auto;
+    max-width: 90%;  /* fits better on mobile */
+    font-size: 16px; /* slightly smaller text */
+    padding: 10px;
+  }
+
+  .toast-body {
+    font-size: 16px;
+  }
+}
