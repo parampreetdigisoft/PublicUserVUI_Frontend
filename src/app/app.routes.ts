@@ -27,6 +27,10 @@ export const routes: Routes = [
     loadComponent: () =>import('../app/features/research-publication/research-publication').then(m => m.ResearchPublication),
   },
   {
+    path: 'training-certification',
+    loadComponent: () =>import('../app/features/training-certification/training-certification').then(m => m.TrainingCertification),
+  },
+  {
     path: 'contact',
     loadComponent: () =>import('../app/features/contact-component/contact-component').then(m => m.ContactComponent),
   },
