@@ -27,7 +27,11 @@ export class CommonService {
     }
     return years;
   }
-  goToSubscriptionApp(url:string='/auth/clientPortalLogin'){ 
+  goToSubscriptionApp(url:string='/auth/auth/clientPortalLogin'){ 
     window.open(environment.subscriptionUrl+url, '_blank');
+  }
+  
+  goToAdminApp(url:string='/auth/login'){ 
+    window.open(environment.adminUrl+url, '_blank');
   }
 }

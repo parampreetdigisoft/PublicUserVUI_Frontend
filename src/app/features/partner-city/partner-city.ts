@@ -107,7 +107,7 @@ export class PartnerCity implements OnInit {
 
   loginAdmin() {
     let url = '/auth/login?role=' + UserRoleValue.Admin;
-    this.common.goToSubscriptionApp(url);
+    this.common.goToAdminApp(url);
   }
   onCountryChange(selectedCountry: any) {
     if (selectedCountry) {

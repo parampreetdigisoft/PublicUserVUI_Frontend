@@ -21,6 +21,6 @@ export class ResearchPublication {
   
   loginAdmin() {
     let url = '/auth/login?role=' + UserRoleValue.Admin;
-    this.common.goToSubscriptionApp(url);
+    this.common.goToAdminApp(url);
   }
 }

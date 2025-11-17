@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   loginAdmin() {
     let url = '/auth/login?role=' + UserRoleValue.Admin;
-    this.common.goToSubscriptionApp(url);
+    this.common.goToAdminApp(url);
   }
 
   ngAfterViewInit(): void {
