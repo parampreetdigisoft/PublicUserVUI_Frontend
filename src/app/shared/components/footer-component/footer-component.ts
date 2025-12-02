@@ -20,7 +20,7 @@ export class FooterComponent {
     this.common.goToSubscriptionApp();
   }
   loginAdmin() {
-    let url = '/auth/auth/login?role=' + UserRoleValue.Admin;
-    this.common.goToAdminApp(url);
+    //let url = '/auth/login?role=' + UserRoleValue.Admin;
+    this.common.goToAdminApp();
   }
 }

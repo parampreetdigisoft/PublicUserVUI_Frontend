@@ -21,7 +21,7 @@ private common = inject(CommonService);
   }
   
   loginAdmin() {
-    let url = '/auth/login?role=' + UserRoleValue.Admin;
-    this.common.goToSubscriptionApp(url);
+    //let url = '/auth/login?role=' + UserRoleValue.Admin;
+    this.common.goToAdminApp();
   }
 }

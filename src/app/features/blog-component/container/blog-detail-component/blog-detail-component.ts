@@ -42,7 +42,7 @@ export class BlogDetailComponent implements OnInit {
   }
 
   loginAdmin() {
-    let url = '/auth/login?role=' + UserRoleValue.Admin;
-    this.common.goToSubscriptionApp(url);
+    //let url = '/auth/login?role=' + UserRoleValue.Admin;
+    this.common.goToAdminApp();
   }
 }

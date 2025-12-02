@@ -91,8 +91,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.toaster.showInfo("Veridian Urban Systems is currently at the pilot stage. Login and subscription features are temporarily unavailable while we finalize our email and authentication system.");
   }
   loginAdmin() {
-    let url = '/auth/login?role=' + UserRoleValue.Admin;
-    this.common.goToAdminApp(url);
+    //let url = '/auth/login?role=' + UserRoleValue.Admin;
+    this.common.goToAdminApp();
   }
 
   ngAfterViewInit(): void {

@@ -23,7 +23,7 @@ export class HearderComponent {
   }
   
   loginAdmin() {
-    let url = '/auth/login?role=' + UserRoleValue.Admin;
-    this.common.goToAdminApp(url);
+    //let url = '/auth/login?role=' + UserRoleValue.Admin;
+    this.common.goToAdminApp();
   }
 }
