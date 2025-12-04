@@ -8,64 +8,86 @@ import { ContactUsRequestDto } from '../../core/models/ContactUsRequestDto';
 import { PublicService } from '../../core/services/public-service';
 import { ToasterService } from '../../core/services/toaster.service';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { countriesList } from '../../core/data/countriesList';
-import { USACity } from '../../core/data/USACity';
+import { CountryData } from '../../core/models/CountryCityResponse';
 
 @Component({
   selector: 'app-contact-component',
-  imports: [CommonModule, FormsModule, RecaptchaModule,ReactiveFormsModule,NgSelectModule ],
+  imports: [CommonModule, FormsModule, RecaptchaModule, ReactiveFormsModule, NgSelectModule],
   templateUrl: './contact-component.html',
   styleUrl: './contact-component.css'
 })
-export class ContactComponent implements OnInit{
+export class ContactComponent implements OnInit {
   captchaToken: string | null = null;
   contactForm!: FormGroup;
   loading: boolean = false;
-  cities: string[] = [];
-  countries = countriesList;
-  
-  constructor(private fb: FormBuilder, private common:CommonService, 
-    private publicService:PublicService, private toasterService:ToasterService ) {
-    }
-    ngOnInit(): void {
-      
-      this.contactForm = this.fb.group({
-        name: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
-        city: ['', Validators.required],
-        country: ['', Validators.required],
-        subject: ['', Validators.required],
-        message: ['', Validators.required],
-        recaptcha: ['', Validators.required]
-      });
-      this.cities =USACity;
-    }
-    
+  cities: string[] = [
+    "New York City",
+    "Los Angeles",
+    "Chicago",
+    "Houston",
+    "Phoenix",
+    "San Francisco",
+    "Washington, D.C.",
+    "Las Vegas",
+    "Miami",
+    "Boston"
+  ];
+  countries: CountryData[] = [];
+
+  constructor(private fb: FormBuilder, private common: CommonService,
+    private publicService: PublicService, private toasterService: ToasterService) {
+  }
+  ngOnInit(): void {
+    this.GetAllCountryWithCity();
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
+      subject: ['', Validators.required],
+      message: ['', Validators.required],
+      recaptcha: ['', Validators.required]
+    });
+  }
+
+  GetAllCountryWithCity() {
+    this.publicService.GetCountriesCities().subscribe({
+      next: (res) => {
+        this.countries = res?.data ?? [];
+      },
+      error: (err) => {
+        this.loading = false;
+        this.toasterService.showError('Please try again.');
+      }
+    });
+  }
+
+
   resolved(token: string | null) {
     this.captchaToken = token;
     this.contactForm.patchValue({ recaptcha: token });
   }
-  
+
   onSubmit() {
     if (this.contactForm.valid) {
       this.loading = true;
-      
-      let payload:ContactUsRequestDto = {
+
+      let payload: ContactUsRequestDto = {
         ...this.contactForm.value
       }
       //console.log('Form Submitted:', this.contactForm.value,payload);
-      
+
       this.publicService.contactus(payload).subscribe({
-        next:(res)=>{
+        next: (res) => {
           this.loading = false;
-          if(res.succeeded){  
+          if (res.succeeded) {
             this.toasterService.showSuccess(res.messages.join(', '));
             this.contactForm.reset();
           } else {
-            this.toasterService.showError(res.errors.join(', ') );
+            this.toasterService.showError(res.errors.join(', '));
           }
         },
-        error:(err)=>{
+        error: (err) => {
           this.loading = false;
           this.toasterService.showError('Failed to send your message. Please try again later.');
         }
@@ -74,16 +96,16 @@ export class ContactComponent implements OnInit{
       this.contactForm.markAllAsTouched();
     }
   }
-  
-  
+
+
   loginCityUser() {
     this.common.goToSubscriptionApp();
   }
-  
+
   goToSite() {
     this.common.goToSubscriptionApp();
   }
-  
+
   loginAdmin() {
     //let url = '/auth/login?role=' + UserRoleValue.Admin;
     this.common.goToAdminApp();
@@ -91,13 +113,13 @@ export class ContactComponent implements OnInit{
 
 
   onCountryChange(selectedCountry: any) {
-    if(selectedCountry){
+    if (selectedCountry) {
       this.cities = selectedCountry.cities;
       this.contactForm.get('city')?.setValue(null); // reset city
     }
-    else{
+    else {
       this.contactForm.get('country')?.setValue(null); // reset city
     }
   }
- 
+
 }

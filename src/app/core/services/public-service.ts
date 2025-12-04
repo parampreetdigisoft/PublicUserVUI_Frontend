@@ -8,6 +8,7 @@ import { PaginationResponse } from '../models/PaginationResponse';
 import { PartnerCityResponseDto } from '../models/PartnerCityHistoryResponseDto';
 import { PillarResponseDto } from '../models/PillarResponseDto';
 import { PartnerCityFilterResponse } from '../models/PartnerCityFilterResponse';
+import { CountryCityResponse } from '../models/CountryCityResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,9 @@ export class PublicService {
   }
   DownloadSummeryReportPdf() {
     return this.http.ImportFile('Public/DownloadSummeryReportPdf');
+  }
+
+  GetCountriesCities() {
+    return this.http.get('Public/countries-cities').pipe(map((x) => x as CountryCityResponse));
   }
 }
