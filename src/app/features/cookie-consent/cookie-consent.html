@@ -1,0 +1,11 @@
+<div class="cookie-banner" *ngIf="showBanner">
+  <p>
+    We use cookies to ensure platform security, improve performance, and analyze usage.
+    <a routerLink="/cookies-policy">Learn more</a>
+  </p>
+
+  <div class="btn-group">
+    <button (click)="acceptCookies()">Accept</button>
+    <button (click)="rejectCookies()">Reject</button>
+  </div>
+</div>

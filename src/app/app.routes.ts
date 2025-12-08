@@ -43,6 +43,10 @@ export const routes: Routes = [
     loadComponent: () =>import('../app/shared/components/terms-and-conditions/terms-and-conditions').then(m => m.TermsAndConditions),
   },
   {
+    path: 'cookies-policy',
+    loadComponent: () =>import('../app/shared/components/cookies-policy/cookies-policy').then(m => m.CookiesPolicy),
+  },
+  {
     path: '**',
     redirectTo: '',
   }

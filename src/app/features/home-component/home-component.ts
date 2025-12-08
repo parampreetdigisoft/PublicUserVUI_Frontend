@@ -5,15 +5,12 @@ import { environment } from '../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { CommonService } from '../../core/services/common-service';
-import { UserRoleValue } from '../../core/models/UserRole';
 import { FrequentlyAskQuestions } from '../../shared/components/frequently-ask-questions/frequently-ask-questions';
 import { PublicService } from '../../core/services/public-service';
 import { ToasterService } from '../../core/services/toaster.service';
 import { PartnerCityResponseDto } from '../../core/models/PartnerCityHistoryResponseDto';
 import { SortDirection } from '../../core/enums/SortDirection';
 import { PartnerCityRequest } from '../../core/models/PaginationRequest';
-import { StorageKeyEnum } from '../../core/enums/StorageKeyEnum';
-import { TieredAccessPlan } from '../../core/models/TieredAccessPlan';
 
 @Component({
   selector: 'app-home-component',

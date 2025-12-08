@@ -6,11 +6,12 @@ import { FooterComponent } from './shared/components/footer-component/footer-com
 import { ToasterService } from './core/services/toaster.service';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { CookieConsent } from './features/cookie-consent/cookie-consent';
 declare var bootstrap: any;
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, HearderComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, HearderComponent, FooterComponent,CookieConsent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
