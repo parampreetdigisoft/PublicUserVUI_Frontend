@@ -1,0 +1,26 @@
+.scoring-scale-p {
+    color: #FFF;
+    width: 93rem;
+    max-width: 100%;
+    margin: 0rem auto 5rem auto;
+    display: block;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem;
+    text-align: center;
+}
+.scoring-section .scale-p {
+    margin: 1rem auto 2rem auto;
+    font-size: 2rem;
+}
+.key_indicators {
+    all: unset;
+}
+.key_indicators .cus_table {
+    background-color: #ffffff;
+}
+.download-area-p {
+    width: 82rem;
+    font-family: "Montserrat", sans-serif;
+}
