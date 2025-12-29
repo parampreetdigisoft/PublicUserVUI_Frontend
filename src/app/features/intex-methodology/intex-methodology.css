@@ -24,3 +24,62 @@
     width: 82rem;
     font-family: "Montserrat", sans-serif;
 }
+.policy_text{
+    background-color: rgb(0 0 0 / 10%);
+    padding: 6.6rem 0;
+}
+.policy_text p {
+    color: #565656;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 2.8rem;
+}
+.policy_text p b, .policy_text ul li b {
+    color: #304A43;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.4rem;
+}
+.policy_text p a{
+    color: #EFBF04;
+}
+.policy_text h2 {
+    color: #1D1D1D;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 2.5rem 0 1.5rem 0;
+}
+.policy_text ul {
+    list-style: disc;
+    list-style-position: inside;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.policy_text ol {
+    list-style: auto;
+    list-style-position: inside;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.policy_text ul li , .policy_text ol li{
+    color: #565656;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 2.8rem;
+}
+.policy_text h3 {
+    color: #1D1D1D;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 2rem 0 1rem 0;
+}
+.index_measuring .inner_framework{
+    padding: 8.6rem 0;
+}
