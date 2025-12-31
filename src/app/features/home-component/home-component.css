@@ -18,20 +18,23 @@
   grid-gap: 8.0rem;
 }
 
-.icon-3 img
-{
+.icon-3 img {
   width: 3.3rem;
   height: auto;
 }
+
 .plan_head .plan_icon {
-    flex: unset;
-    display: block;
-    font-size: 20px;
+  flex: unset;
+  display: block;
+  font-size: 20px;
 }
-.plan_head .plan_icon path, .plan_head .plan_icon svg{
+
+.plan_head .plan_icon path,
+.plan_head .plan_icon svg {
   width: 28px;
   height: 28px;
 }
+
 /* .price_name h5 {
     font-size: 25px;
     text-transform: capitalize;
@@ -84,4 +87,41 @@
 .single_card_new p b {
   font-size: medium;
   font-weight: 700;
+}
+
+.choose_plan_home .plan_section {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+.choose_plan_home .modal-dialog {
+  max-width: 1260px;
+  width: 100%;
+  padding: 20px;
+}
+
+::ng-deep .modal-backdrop.fade.show {
+  z-index: 99999 !important;
+}
+
+.choose_plan_home.show {
+  z-index: 999999 !important;
+}
+
+.choose_plan_home .btn-close {
+  background-color: #ffffff;
+  opacity: 1;
+  padding: 10px;
+  border-radius: 100px;
+  top: -15px;
+  right: -15px;
+}
+
+@media only screen and (max-width:1199px) {
+  .choose_plan_home .plan_section {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

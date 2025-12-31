@@ -1,5 +1,5 @@
 
-import { AfterViewInit, Component, computed, ElementRef, inject, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, computed, ElementRef, inject, OnDestroy, OnInit, Signal, signal, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
@@ -11,6 +11,11 @@ import { ToasterService } from '../../core/services/toaster.service';
 import { PartnerCityResponseDto } from '../../core/models/PartnerCityHistoryResponseDto';
 import { SortDirection } from '../../core/enums/SortDirection';
 import { PartnerCityRequest } from '../../core/models/PaginationRequest';
+import { TieredAccessPlanValue } from '../../core/models/TieredAccessPlan';
+import { IPlan } from '../../core/models/CityVM';
+declare var bootstrap: any;
+type PlanCategory = 'Evaluation' | 'Access';
+
 
 @Component({
   selector: 'app-home-component',
@@ -24,6 +29,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     "economic",
     "Social"
   ];
+
 
   // BehaviorSubject (in case you want to add/remove dynamically later)
   private pillarSubject = new BehaviorSubject<string[]>(this.pillars);
@@ -39,6 +45,20 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private toaster = inject(ToasterService);
   loading = signal(false);
   citiesResponse = signal<PartnerCityResponseDto[] | undefined>(undefined);
+  selectedPlanCategory = signal<PlanCategory | null>(null);
+  isOpendialog = false;
+  plans: Record<PlanCategory, IPlan[]> = {
+    Evaluation: [
+      { name: 'Basic', tier: TieredAccessPlanValue.Basic, amount: 14999 },
+      { name: 'Standard', tier: TieredAccessPlanValue.Standard, amount: 27500 },
+      { name: 'Premium', tier: TieredAccessPlanValue.Premium, amount: 0 }
+    ],
+    Access: [
+      { name: 'Basic', tier: TieredAccessPlanValue.Basic, amount: 1500 },
+      { name: 'Standard', tier: TieredAccessPlanValue.Standard, amount: 2600 },
+      { name: 'Premium', tier: TieredAccessPlanValue.Premium, amount: 0 }
+    ]
+  };
 
   firstCities = computed<PartnerCityResponseDto[]>(() => {
     let s = this.citiesResponse() ? this.citiesResponse()!.slice(0, 2) : [];
@@ -50,7 +70,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     return s;
   });
   ngOnInit(): void {
-   
+
   }
   onImgError(event: Event) {
     (event.target as HTMLImageElement).src = '../../../../partner_cities.jpg';
@@ -73,7 +93,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   goToSite() {
     this.common.goToSubscriptionApp();
   }
-  choosePlan(planValue:number ) {
+  choosePlan(planValue: number) {
     // let selectedPlan =TieredAccessPlan.Premium;
     // if(planValue==1){
     //    selectedPlan= TieredAccessPlan.Basic;
@@ -81,7 +101,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     // else if(planValue==2){
     //    selectedPlan= TieredAccessPlan.Standard;
     // }
-  
+
     // localStorage.setItem(StorageKeyEnum.SelectedPlan, selectedPlan );
     // this.common.goToSubscriptionApp();
 
@@ -134,5 +154,44 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     cancelAnimationFrame(this.animationFrameId);
+  }
+
+  openAccessTier(category: PlanCategory | null) {
+    this.selectedPlanCategory.set(category);
+    this.opendialog();
+  }
+  getPlanPrice(plan: string) {
+    let category = this.selectedPlanCategory();
+    if (category != null) {
+      return this.plans[category].find(x => x.name == plan)?.amount
+    }
+    return 0;
+  }
+
+  opendialog() {
+    this.isOpendialog = true;
+    setTimeout(() => {
+      const modalEl = document.getElementById("exampleModal");
+      if (modalEl) {
+        let modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (!modalInstance) {
+          modalInstance = new bootstrap.Modal(modalEl);
+        }
+        modalInstance.show(); // ✅ use show()
+      }
+    }, 100);
+  }
+
+
+  closeModal() {
+    const homeTab = document.querySelector('#pills-home-tab') as HTMLElement;
+    if (homeTab) {
+      homeTab.click();
+    }
+    const modalEl = document.getElementById('exampleModal');
+    const modalInstance = bootstrap.Modal.getInstance(modalEl);
+    if (modalInstance)
+      modalInstance.hide();
+    this.isOpendialog = false;
   }
 }

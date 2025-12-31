@@ -1,3 +1,5 @@
+import { TieredAccessPlanValue } from "./TieredAccessPlan";
+
 export interface CityVM extends AddUpdateCityDto {
   isActive: boolean;
   createdDate: string;   // ISO date string from backend
@@ -17,3 +19,9 @@ export interface AddUpdateCityDto {
   image: string;
 }
 
+
+export interface IPlan {
+  name:string,
+  tier:TieredAccessPlanValue,
+  amount:number
+} 

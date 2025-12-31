@@ -4,7 +4,7 @@
   bottom: 30px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  z-index: 2000;
+  z-index: 999999;
   min-width: 320px;
   max-width: 420px;
   border-radius: 10px;
