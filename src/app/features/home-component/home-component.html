@@ -371,9 +371,27 @@
                                     </p>
 
                                     <ul class="plans_advantage">
-                                        <li>City-specific assessment</li>
-                                        <li>Pillar-based scoring & benchmarking</li>
-                                        <li>Policy-ready insights</li>
+                                        <li> <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                <path d="M5.5 10L8.5 13L14.5 7" stroke="white" stroke-width="2.60924"
+                                                    stroke-miterlimit="10" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg><span>City-specific assessment</span></li>
+                                        <li> <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                <path d="M5.5 10L8.5 13L14.5 7" stroke="white" stroke-width="2.60924"
+                                                    stroke-miterlimit="10" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg><span>Pillar-based scoring & benchmarking</span></li>
+                                        <li> <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                <path d="M5.5 10L8.5 13L14.5 7" stroke="white" stroke-width="2.60924"
+                                                    stroke-miterlimit="10" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg><span>Policy-ready insights</span></li>
                                     </ul>
 
                                     <a class="choose_plan_btn" style="cursor:pointer"
@@ -410,9 +428,27 @@
                                     </p>
 
                                     <ul class="plans_advantage">
-                                        <li>Pre-built indices</li>
-                                        <li>Comparative dashboards</li>
-                                        <li>Multi-city insights</li>
+                                        <li> <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                <path d="M5.5 10L8.5 13L14.5 7" stroke="white" stroke-width="2.60924"
+                                                    stroke-miterlimit="10" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg><span>Pre-built indices</span></li>
+                                        <li> <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                <path d="M5.5 10L8.5 13L14.5 7" stroke="white" stroke-width="2.60924"
+                                                    stroke-miterlimit="10" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg><span>Comparative dashboards</span></li>
+                                        <li> <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                <path d="M5.5 10L8.5 13L14.5 7" stroke="white" stroke-width="2.60924"
+                                                    stroke-miterlimit="10" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg><span>Multi-city insights</span></li>
                                     </ul>
 
                                     <a class="choose_plan_btn" style="cursor:pointer"
@@ -436,7 +472,7 @@
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <section class="plan_section">
+            <section class="plan_section" *ngIf="this.selectedPlanCategory()==='Evaluation'">
                 <div class="container-xxl">
                     <h4 class="common_head_white">Choose your Right Plan</h4>
                     <p class="common_sub_head_white">It is a long established fact that a reader will be distracted by
@@ -467,7 +503,356 @@
                                                 </div>
                                                 <div class="price_head">
                                                     <span class="plan_price_head">
-                                                        ${{getPlanPrice('Basic')}}
+                                                        $14,999
+                                                    </span>
+                                                    <span class="plan_limit_head">
+                                                        / Year
+                                                    </span>
+                                                </div>
+                                                <p class="plan_desc">For small cities or municipal teams seeking to test
+                                                    the Veridian Urban Index through a focused, low-complexity
+                                                    assessment.
+
+                                                    The Basic Plan supports cities that want to examine four priority
+                                                    pillars they consider most pertinent, without engaging the full
+                                                    system.
+                                                </p>
+
+
+                                                <ul class="plans_advantage">
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            View and export data for 4 selected pillars
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            Establish baseline conditions in priority domains
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            Identify immediate constraints and performance gaps
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            Generate an introductory city diagnostic with clear signals
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                                <p class="plan_desc">Ideal for cities piloting structured diagnostics or
+                                                    preparing for deeper assessment
+                                                </p>
+                                                <a (click)="choosePlan(1)" style="cursor: pointer;"
+                                                    class="choose_plan_btn">Choose
+                                                    plan</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="outer_plan">
+                                            <div class="inner_outer_plan">
+
+                                                <div class="plan_head">
+                                                    <span class="plan_icon">
+                                                        <svg width="800" height="800" viewBox="0 0 800 800" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <g clip-path="url(#clip0_561_10)">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M689.9 595.724C642.025 579.799 590.55 567.901 536.375 560.201C543.75 516.875 547.675 471.475 548.925 425H749.05C744.575 488.025 723.4 546.349 689.9 595.724ZM485.85 738.976C502.5 698.751 516.125 655.276 526.6 609.476C571.55 616.126 614.65 625.95 655.475 638.85C610.375 686.925 551.825 722.301 485.85 738.976ZM424.275 748.775C416.225 749.35 408.2 750 400 750C391.8 750 383.8 749.35 375.725 748.775C354.45 704.475 337.225 655.175 324.475 602.85C349.325 600.675 374.5 599.4 400 599.4C425.5 599.4 450.675 600.675 475.55 602.85C462.775 655.175 445.55 704.475 424.275 748.775ZM144.525 638.85C185.35 625.95 228.45 616.126 273.4 609.476C283.875 655.276 297.5 698.751 314.15 738.976C248.175 722.301 189.65 686.925 144.525 638.85ZM110.1 595.724C76.6002 546.349 55.4249 488.025 50.9499 425H251.075C252.325 471.475 256.25 516.875 263.625 560.201C209.45 567.901 157.975 579.799 110.1 595.724ZM110.1 204.276C157.975 220.201 209.45 232.124 263.625 239.799C256.25 283.125 252.325 328.525 251.075 375H50.9499C55.4249 311.975 76.6002 253.651 110.1 204.276ZM314.15 61.0245C297.5 101.249 283.875 144.724 273.4 190.524C228.45 183.899 185.35 174.05 144.525 161.15C189.65 113.075 248.175 77.6995 314.15 61.0245ZM375.725 51.2253C383.8 50.6753 391.8 50 400 50C408.2 50 416.225 50.6753 424.275 51.2253C445.55 95.5253 462.775 144.85 475.55 197.15C450.675 199.325 425.5 200.6 400 200.6C374.5 200.6 349.325 199.325 324.475 197.15C337.225 144.85 354.45 95.5253 375.725 51.2253ZM498.85 425C497.5 469.025 493.5 512.325 485.975 553.9C457.825 551.45 429.2 550 400 550C370.8 550 342.175 551.45 314.05 553.9C306.5 512.325 302.5 469.025 301.175 425H498.85ZM301.175 375C302.5 330.975 306.5 287.675 314.05 246.1C342.175 248.55 370.8 250 400 250C429.2 250 457.825 248.55 485.95 246.1C493.5 287.675 497.5 330.975 498.85 375H301.175ZM655.475 161.15C614.65 174.05 571.55 183.899 526.6 190.524C516.125 144.724 502.5 101.249 485.85 61.0245C551.825 77.6995 610.375 113.075 655.475 161.15ZM689.9 204.276C723.4 253.651 744.575 311.975 749.05 375H548.925C547.675 328.525 543.75 283.125 536.375 239.799C590.55 232.124 642.025 220.201 689.9 204.276ZM400 0C179.1 0 0 179.075 0 400C0 620.925 179.1 800 400 800C620.9 800 800 620.925 800 400C800 179.075 620.9 0 400 0Z"
+                                                                    fill="black" />
+                                                            </g>
+                                                            <defs>
+                                                                <clipPath id="clip0_561_10">
+                                                                    <rect width="800" height="800" fill="white" />
+                                                                </clipPath>
+                                                            </defs>
+                                                        </svg>
+                                                    </span>
+                                                    <div class="price_name">
+                                                        <span> Standard Plan </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="price_head">
+                                                    <span class="plan_price_head">
+                                                        $27,500
+                                                    </span>
+                                                    <span class="plan_limit_head">
+                                                        / Year
+                                                    </span>
+                                                </div>
+                                                <p class="plan_desc">
+                                                    For medium-sized cities requiring a broader, more connected view of
+                                                    urban performance across key systems.
+                                                    The Standard Plan expands analysis to seven major pillars, supported
+                                                    by selected KPIs and comparative insight.
+
+                                                </p>
+
+                                                <ul class="plans_advantage">
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            View and export data for 7 core pillars
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            Track performance across related sectors
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            Generate comparative reports across time and domains
+                                                        </span>
+                                                    </li>
+
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            Access dashboards highlighting trends and emerging risks
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                                <p class="plan_desc">Best for cities undertaking sectoral reform or
+                                                    medium-term planning.
+                                                </p>
+                                                <a (click)="choosePlan(2)" style="cursor: pointer;"
+                                                    class="choose_plan_btn">Choose
+                                                    plan</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="outer_plan most_popular">
+                                            <ul class="most_popular_text">
+                                                <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                        viewBox="0 0 14 14" fill="none">
+                                                        <path
+                                                            d="M13.3389 6.469L10.7258 8.72384L11.522 12.0959C11.5659 12.279 11.5546 12.471 11.4894 12.6476C11.4243 12.8242 11.3083 12.9776 11.1561 13.0883C11.0038 13.199 10.8222 13.2622 10.6341 13.2697C10.446 13.2773 10.2599 13.2289 10.0993 13.1307L7.16674 11.3259L4.23249 13.1307C4.07189 13.2283 3.88599 13.2762 3.69822 13.2684C3.51044 13.2606 3.32918 13.1974 3.17725 13.0867C3.02533 12.9761 2.90954 12.823 2.84446 12.6467C2.77938 12.4704 2.76792 12.2787 2.81153 12.0959L3.61057 8.72384L0.997441 6.469C0.855343 6.34619 0.752576 6.18424 0.701973 6.00337C0.65137 5.8225 0.655173 5.63073 0.712909 5.45201C0.770644 5.27329 0.879753 5.11554 1.02661 4.99846C1.17346 4.88138 1.35156 4.81016 1.53865 4.79369L4.96475 4.51728L6.28641 1.31882C6.35795 1.1445 6.47971 0.995398 6.6362 0.89046C6.7927 0.785523 6.97687 0.729492 7.16529 0.729492C7.35371 0.729492 7.53788 0.785523 7.69438 0.89046C7.85088 0.995398 7.97263 1.1445 8.04417 1.31882L9.36525 4.51728L12.7914 4.79369C12.9788 4.80955 13.1574 4.88037 13.3048 4.99729C13.4522 5.11421 13.5618 5.27202 13.6199 5.45096C13.678 5.62989 13.682 5.82199 13.6314 6.00319C13.5808 6.18439 13.4779 6.34663 13.3355 6.46958L13.3389 6.469Z"
+                                                            fill="#304A43" />
+                                                    </svg></li>
+                                                <li>Most Popular</li>
+                                            </ul>
+                                            <div class="inner_outer_plan">
+                                                <div class="plan_head">
+                                                    <span class="plan_icon">
+                                                        <svg width="800" height="800" viewBox="0 0 800 800" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <g clip-path="url(#clip0_561_2)">
+                                                                <path d="M800 0H0V800H800V0Z" fill="white"
+                                                                    fill-opacity="0.01" />
+                                                                <path d="M300 516.667H633.333V83.3334" stroke="black"
+                                                                    stroke-width="66.6667" stroke-linecap="round"
+                                                                    stroke-linejoin="round" />
+                                                                <path d="M499.999 350H166.666V716.667" stroke="black"
+                                                                    stroke-width="66.6667" stroke-linecap="round"
+                                                                    stroke-linejoin="round" />
+                                                                <path
+                                                                    d="M733.334 183.333L633.334 83.3334L533.334 183.333"
+                                                                    stroke="black" stroke-width="66.6667"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                                <path
+                                                                    d="M266.666 616.667L166.666 716.667L66.666 616.667"
+                                                                    stroke="black" stroke-width="66.6667"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                            </g>
+                                                            <defs>
+                                                                <clipPath id="clip0_561_2">
+                                                                    <rect width="800" height="800" fill="white" />
+                                                                </clipPath>
+                                                            </defs>
+                                                        </svg>
+                                                    </span>
+                                                    <div class="price_name">
+                                                        <span>Enterprise Plan</span>
+                                                    </div>
+                                                </div>
+                                                <div class="price_head">
+                                                    <span class="plan_price_head">
+                                                        Custom Pricing
+                                                    </span>
+                                                    <span class="plan_limit_head">
+                                                        / Year
+                                                    </span>
+                                                </div>
+                                                <p class="plan_desc">For large or complex cities, governments, or
+                                                    institutions managing multi-sectoral and multi-city challenges.
+
+                                                    The Enterprise Plan activates the full pillar architecture, enabling
+                                                    system-level and cross-city intelligence.
+
+                                                </p>
+
+                                                <ul class="plans_advantage">
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            View and export data for all pillars
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            Conduct multi-city benchmarking and longitudinal analysis
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            Build custom dashboards across regions or networks
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="20" height="20" rx="10" fill="#304A43" />
+                                                            <path d="M5.5 10L8.5 13L14.5 7" stroke="white"
+                                                                stroke-width="2.60924" stroke-miterlimit="10"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>
+                                                            Receive dedicated onboarding, training, and integration
+                                                            support
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                                <p class="plan_desc">Designed for cities pursuing comprehensive
+                                                    transformation and coordinated governance.
+                                                </p>
+
+                                                <a routerLink="/contact" style="cursor: pointer;"
+                                                    class="choose_plan_btn" data-bs-dismiss="modal"
+                                                    aria-label="Close">Contact us
+                                                    for pricing</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="plan_section" *ngIf="this.selectedPlanCategory()==='Access'">
+                <div class="container-xxl">
+                    <h4 class="common_head_white">Choose your Right Plan</h4>
+                    <p class="common_sub_head_white">It is a long established fact that a reader will be distracted by
+                        the
+                        readable
+                        content of a page when looking at its layout.</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="plans_area">
+                        <div class="row justify-content-center">
+                            <div class="col-xxl-12">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="outer_plan">
+                                            <div class="inner_outer_plan">
+                                                <div class="plan_head">
+                                                    <span class="plan_icon">
+                                                        <svg width="800" height="676" viewBox="0 0 800 676" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M780.025 636.046H713.095V439.598C713.095 428.559 704.146 419.623 693.12 419.623H642.73V315.82C642.73 304.78 633.781 295.845 622.755 295.845H495.434C484.408 295.845 475.459 304.78 475.459 315.82V636.046H454.339V19.976C454.339 11.3734 448.839 3.74296 440.689 1.02636C432.539 -1.69024 423.551 1.10626 418.384 7.99099L272.846 202.042C270.262 205.504 268.851 209.699 268.851 214.027V636.046H248.143V213.934C248.143 202.894 239.194 193.959 228.168 193.959H187.499V84.6552C187.499 73.6156 178.55 64.6801 167.524 64.6801C156.498 64.6801 147.549 73.6156 147.549 84.6552V193.959H106.893C95.8668 193.959 86.918 202.894 86.918 213.934V636.046H19.975C8.94881 636.046 0 644.981 0 656.021C0 667.06 8.94881 675.996 19.975 675.996H780.025C791.051 675.996 800 667.06 800 656.021C800 644.995 791.051 636.046 780.025 636.046ZM126.868 636.046V233.909H208.206V636.046H126.868ZM308.801 636.046V220.685L414.389 79.9011V636.046H308.801Z"
+                                                                fill="black" />
+                                                        </svg>
+                                                    </span>
+                                                    <div class="price_name">
+                                                        <span> Basic Plan </span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="price_head">
+                                                    <span class="plan_price_head">
+                                                        $15,00
                                                     </span>
                                                     <span class="plan_limit_head">
                                                         / Year
@@ -561,7 +946,7 @@
 
                                                 <div class="price_head">
                                                     <span class="plan_price_head">
-                                                        ${{getPlanPrice('Standard')}}
+                                                        $26,00
                                                     </span>
                                                     <span class="plan_limit_head">
                                                         / Year
@@ -675,14 +1060,14 @@
                                                         <span>Enterprise Plan</span>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="price_head">
-                                        <span class="plan_price_head">
-                                            $550
-                                        </span>
-                                        <span class="plan_limit_head">
-                                            / Year
-                                        </span>
-                                    </div> -->
+                                                <div class="price_head">
+                                                    <span class="plan_price_head">
+                                                        Custom Pricing
+                                                    </span>
+                                                    <span class="plan_limit_head">
+                                                        / Year
+                                                    </span>
+                                                </div>
                                                 <p class="plan_desc">For governments, institutions, or networks managing
                                                     diagnostics
                                                     across multiple cities.
