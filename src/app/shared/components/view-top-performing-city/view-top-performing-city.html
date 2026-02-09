@@ -1,57 +1,5 @@
 <div class="showcase-container">
   <div class="carousel-wrapper">
-    <!-- Overall Top 3 View -->
-    <div class="carousel-view" 
-         [class.active]="isOverallView()" 
-         [class.transitioning]="isTransitioning()">
-      
-      <div class="view-header">
-        <div class="view-title-wrapper">
-          <div class="view-icon overall-icon">👑</div>
-          <div>
-            <h3 class="view-title">Overall Top Performers</h3>
-            <p class="view-description">Cities leading across all urban system dimensions</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cities-grid">
-        <div class="city-card" 
-             *ngFor="let city of topCities; let i = index"
-             [style.animation-delay]="(i * 0.1) + 's'">
-          <div class="card-rank" [class]="'rank-' + city.rank">
-            <span class="rank-number">#{{ city.rank }}</span>
-          </div>
-          
-          <div class="card-image">
-            <img [src]="city.image" [alt]="city.name">
-            <div class="image-overlay"></div>
-          </div>
-          
-          <div class="card-content">
-            <div class="city-header">
-              <div>
-                <h4 class="city-name">{{ city.name }}</h4>
-                <p class="city-country">{{ city.country }}</p>
-              </div>
-              <div class="score-badge">
-                <span class="score-value">{{ city.score }}</span>
-                <span class="score-label">Score</span>
-              </div>
-            </div>
-            
-            <p class="city-description">{{ city.description }}</p>
-            
-            <div class="card-footer">
-              <div class="performance-bar">
-                <div class="performance-fill" [style.width.%]="city.score"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Pillar-specific Views -->
     <div class="carousel-view" 
          *ngFor="let pillar of pillars; let pillarIndex = index"
@@ -127,16 +75,10 @@
     </button>
 
     <div class="progress-indicators">
-      <button class="indicator" 
-              [class.active]="currentView() === 0"
-              (click)="goToView(0)"
-              [attr.aria-label]="'View overall rankings'">
-        <span class="indicator-tooltip">Overall</span>
-      </button>
-      
+     
       <button class="indicator" 
               *ngFor="let pillar of pillars; let i = index"
-              [class.active]="currentView() === i + 1"
+              [class.active]="currentView() === i"
               (click)="goToView(i + 1)"
               [attr.aria-label]="'View ' + pillar.pillarName">
         <span class="indicator-tooltip">{{ pillar.pillarName }}</span>
