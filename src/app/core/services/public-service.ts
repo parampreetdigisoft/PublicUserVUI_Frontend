@@ -9,6 +9,7 @@ import { PartnerCityResponseDto } from '../models/PartnerCityHistoryResponseDto'
 import { PillarResponseDto } from '../models/PillarResponseDto';
 import { PartnerCityFilterResponse } from '../models/PartnerCityFilterResponse';
 import { CountryCityResponse } from '../models/CountryCityResponse';
+import { PromotedPillarsResponseDto } from '../models/PromotedPillarsResponseDto';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,9 @@ export class PublicService {
 
   GetCountriesCities() {
     return this.http.get('Public/countries-cities').pipe(map((x) => x as CountryCityResponse));
+  }
+  
+  GetPromotedCities() { 
+    return this.http.get('Public/promoted-cities').pipe(map((x) => x as ResultResponseDto<PromotedPillarsResponseDto[]>));
   }
 }

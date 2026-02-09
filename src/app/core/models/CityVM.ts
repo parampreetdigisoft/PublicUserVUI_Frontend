@@ -1,15 +1,21 @@
 import { TieredAccessPlanValue } from "./TieredAccessPlan";
 
-export interface CityVM extends AddUpdateCityDto {
+export interface CityVMDetails {
   isActive: boolean;
   createdDate: string;   // ISO date string from backend
   updatedDate?: string | null;
   isDeleted: boolean;
   assignedBy?: string;
   userCityMappingID?:number;
-  score?: number;
 }
-export interface AddUpdateCityDto {
+
+export interface IPlan {
+  name:string,
+  tier:TieredAccessPlanValue,
+  amount:number
+} 
+
+export interface CityVM {
   cityID: number;
   country: string;
   state: string;
@@ -17,11 +23,8 @@ export interface AddUpdateCityDto {
   postalCode: string;
   region: string;
   image: string;
+  scoreProgress?: number;
+  description: string;
+  rank: number;
+
 }
-
-
-export interface IPlan {
-  name:string,
-  tier:TieredAccessPlanValue,
-  amount:number
-} 

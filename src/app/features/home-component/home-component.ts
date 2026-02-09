@@ -13,13 +13,14 @@ import { SortDirection } from '../../core/enums/SortDirection';
 import { PartnerCityRequest } from '../../core/models/PaginationRequest';
 import { TieredAccessPlanValue } from '../../core/models/TieredAccessPlan';
 import { IPlan } from '../../core/models/CityVM';
+import { ViewTopPerformingCity } from '../../shared/components/view-top-performing-city/view-top-performing-city';
 declare var bootstrap: any;
 type PlanCategory = 'Evaluation' | 'Access';
 
 
 @Component({
   selector: 'app-home-component',
-  imports: [RouterLink, CommonModule, FrequentlyAskQuestions],
+  imports: [RouterLink, CommonModule, FrequentlyAskQuestions,ViewTopPerformingCity],
   templateUrl: './home-component.html',
   styleUrl: './home-component.css'
 })
