@@ -22,7 +22,7 @@ export class ViewTopPerformingCity implements OnInit, OnDestroy {
   // 14 Pillars with top 3 cities each
   pillars: PromotedPillarsResponseDto[] = [];
   totalViews = 14; // 1 overall + 14 pillars
-  autoRotateDuration = 3000; // 5 seconds per view  
+  autoRotateDuration = 5000; // 5 seconds per view  
 
 
   constructor(private publicService: PublicService, private toaster: ToasterService, private ctx: ChangeDetectorRef) { }
