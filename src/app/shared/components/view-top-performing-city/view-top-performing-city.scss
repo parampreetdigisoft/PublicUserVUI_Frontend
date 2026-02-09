@@ -852,34 +852,6 @@
   outline-offset: 2px;
 }
 
-/* ===================================
-   DARK MODE SUPPORT (Optional)
-   =================================== */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --vus-cream: #1A1A1A;
-    --vus-white: #2A2A2A;
-    --vus-text-dark: #E0E0E0;
-    --vus-text-medium: #B0B0B0;
-    --vus-text-light: #909090;
-  }
-
-  .showcase-container {
-    background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
-  }
-
-  .city-card,
-  .view-header,
-  .nav-button {
-    background: #2A2A2A;
-    border-color: var(--vus-green-light);
-  }
-
-  .city-card:hover {
-    background: #333333;
-  }
-}
 
 .faq_inner_svg {
   border-radius: 15px;
