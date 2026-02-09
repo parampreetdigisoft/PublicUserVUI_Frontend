@@ -1,101 +1,139 @@
-<div class="showcase-container">
-  <div class="carousel-wrapper">
-    <!-- Pillar-specific Views -->
-    <div class="carousel-view" 
-         *ngFor="let pillar of pillars; let pillarIndex = index"
-         [class.active]="currentView() === pillarIndex + 1" 
-         [class.transitioning]="isTransitioning()">
-      
-      <div class="view-header pillar-header" [style.border-color]="'#3d7a5f'">
-        <div class="view-title-wrapper">
-          <div class="view-icon pillar-icon faq_inner_svg" [style.background-color]="'#3d7a5f'">
-            <img [src]="path+pillar.imagePath" [alt]="'Pillar'">
-            <div class="image-overlay" [style.background]="'linear-gradient(to bottom, transparent, #3d7a5f)'"></div>
-          </div>
-          
-          <div>
-            <h3 class="view-title">{{ pillar.pillarName }}</h3>
-            <p class="view-description">Top 3 cities excelling in {{ pillar.pillarName.toLowerCase() }}</p>
-          </div>
-        </div>
-        <div class="pillar-badge" [style.background-color]="'#3d7a5f'">
-          Pillar {{ pillarIndex + 1 }} of 14
-        </div>
-      </div>
+<div class="showcase-container container-xxl">
+	<div class="carousel-wrapper">
+		<!-- Pillar-specific Views -->
+		<div *ngFor="let pillar of pillars; let pillarIndex = index"
+			[class.active]="currentView() === pillarIndex"
+			[class.transitioning]="isTransitioning()"
+			class="carousel-view">
 
-      <div class="cities-grid">
-        <div class="city-card pillar-card" 
-             *ngFor="let city of pillar.cities; let i = index"
-             [style.animation-delay]="(i * 0.1) + 's'"
-             [style.border-top-color]="'#EFBF04'">
-          <div class="card-rank" [class]="'rank-' + i+1">
-            <span class="rank-number">#{{ i+1 }}</span>
-          </div>
-          
-          <div class="card-image">
-            <img [src]="city.image" [alt]="city.cityName" (error)="onImgError($event)">
-            <div class="image-overlay" [style.background]="'linear-gradient(to bottom, transparent, #4A9570)'"></div>
-          </div>
-          
-          <div class="card-content">
-            <div class="city-header">
-              <div>
-                <h4 class="city-name">{{ city.cityName }}</h4>
-                <p class="city-country">{{ city.country }}</p>
-              </div>
-              <div class="score-badge" [style.background-color]="'#2D5F4C'">
-                <span class="score-value">{{ city.scoreProgress }}</span>
-                <span class="score-label">Score</span>
-              </div>
-            </div>
-            
-            <p class="city-description">{{ city.description }}</p>
-            
-            <div class="card-footer">
-              <div class="performance-bar">
-                <div class="performance-fill" 
-                     [style.width.%]="city.scoreProgress"
-                     [style.background-color]="'#2D5F4C'"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Navigation Controls -->
-  <div class="navigation-controls">
-    <button class="nav-button prev" 
-            (click)="previousView()" 
-            aria-label="Previous view">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
+			<div class="view-header pillar-header">
+				<div class="view-title-wrapper">
+					<div class="view-icon pillar-icon faq_inner_svg">
+						<img [src]="path+pillar.imagePath"
+							[alt]="'Pillar'">
+						<!-- <div class="image-overlay" [style.background]="'linear-gradient(to bottom, transparent, #3d7a5f)'"></div> -->
+					</div>
 
-    <div class="progress-indicators">
-     
-      <button class="indicator" 
-              *ngFor="let pillar of pillars; let i = index"
-              [class.active]="currentView() === i"
-              (click)="goToView(i + 1)"
-              [attr.aria-label]="'View ' + pillar.pillarName">
-        <span class="indicator-tooltip">{{ pillar.pillarName }}</span>
-      </button>
-    </div>
 
-    <button class="nav-button next" 
-            (click)="nextView()" 
-            aria-label="Next view">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-  </div>
+					<div>
+						<h3 class="view-title">
+							{{ pillar.pillarName }}
+						</h3>
+						<p class="view-description">
+							Top 3 cities excelling in {{ pillar.pillarName.toLowerCase() }}
+						</p>
+					</div>
+				</div>
+				<div class="pillar-badge">
+					Pillar {{ pillarIndex + 1 }} of 14
+				</div>
+			</div>
 
-  <!-- Auto-rotate Progress Bar -->
-  <div class="auto-rotate-progress">
-    <div class="progress-bar" [class.paused]="isTransitioning()"></div>
-  </div>
+
+			<div class="cities-grid">
+				<div *ngFor="let city of pillar.cities; let i = index"
+					class="city-card pillar-card">
+					<div [class]="'rank-' + i+1"
+						class="card-rank">
+						<span class="rank-number">#{{ i+1 }}</span>
+					</div>
+
+
+					<div class="card-image">
+						<img [src]="city.image"
+							[alt]="city.cityName"
+							(error)="onImgError($event)">
+						<div class="image-overlay"></div>
+					</div>
+
+
+					<div class="card-content">
+						<div class="city-header">
+							<div>
+								<h4 class="city-name">{{ city.cityName }}</h4>
+								<p class="city-country">{{ city.country }}</p>
+							</div>
+							<div class="score-badge">
+								<span class="score-value">
+									{{ city.scoreProgress }}
+								</span>
+								<span class="score-label">Score</span>
+							</div>
+						</div>
+
+
+						<p class="city-description">
+							{{ city.description }}
+						</p>
+
+
+						<div class="card-footer">
+							<div class="performance-bar">
+								<div [style.width.%]="city.scoreProgress"
+									class="performance-fill"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Navigation Controls -->
+	<div class="navigation-controls">
+		<button (click)="previousView()"
+			class="nav-button prev"
+			aria-label="Previous view">
+			<svg width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none">
+				<path d="M15 18L9 12L15 6"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"></path>
+			</svg>
+		</button>
+
+
+		<div class="progress-indicators">
+
+
+			<button *ngFor="let pillar of pillars; let i = index"
+				[class.active]="currentView() === i"
+				[attr.aria-label]="'View ' + pillar.pillarName"
+				(click)="goToView(i)"
+				class="indicator">
+				<span class="indicator-tooltip">
+					{{ pillar.pillarName }}
+				</span>
+			</button>
+		</div>
+
+
+		<button (click)="nextView()"
+			class="nav-button next"
+			aria-label="Next view">
+			<svg width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none">
+				<path d="M9 18L15 12L9 6"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"></path>
+			</svg>
+		</button>
+	</div>
+
+
+	<!-- Auto-rotate Progress Bar -->
+	<div class="auto-rotate-progress">
+		<div [class.paused]="isTransitioning()"
+			class="progress-bar"></div>
+	</div>
 </div>

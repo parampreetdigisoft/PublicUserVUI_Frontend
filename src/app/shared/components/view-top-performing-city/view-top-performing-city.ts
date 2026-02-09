@@ -5,17 +5,6 @@ import { ToasterService } from '../../../core/services/toaster.service';
 import { PromotedPillarsResponseDto } from '../../../core/models/PromotedPillarsResponseDto';
 import { environment } from '../../../../environments/environment';
 
-interface City {
-  id: number;
-  name: string;
-  country: string;
-  score: number;
-  image: string;
-  description: string;
-  rank: number;
-}
-
-
 @Component({
   selector: 'app-view-top-performing-city',
   imports: [CommonModule],
@@ -26,19 +15,18 @@ interface City {
 
 
 export class ViewTopPerformingCity implements OnInit, OnDestroy {
-  currentView = signal<'overall' | number>(0); // 0 for overall, 1-14 for pillars
+  currentView = signal<number>(0); // 0 for overall, 1-14 for pillars
   isTransitioning = signal(false);
   autoRotateInterval: any;
-  path = environment.apiUrl+'/';
+  path = environment.apiUrl + '/';
   // 14 Pillars with top 3 cities each
   pillars: PromotedPillarsResponseDto[] = [];
-  totalViews = 15; // 1 overall + 14 pillars
+  totalViews = 14; // 1 overall + 14 pillars
   autoRotateDuration = 3000; // 5 seconds per view  
 
 
-  constructor(private publicService: PublicService, private toaster: ToasterService, private ctx:ChangeDetectorRef) { }
+  constructor(private publicService: PublicService, private toaster: ToasterService, private ctx: ChangeDetectorRef) { }
   ngOnInit() {
-    this.startAutoRotation();
     this.GetPartnerCitiesFilterRecord();
   }
 
@@ -53,11 +41,12 @@ export class ViewTopPerformingCity implements OnInit, OnDestroy {
             ...pillar,
             cities: pillar.cities.map(city => ({
               ...city,
-              description: city.description? city.description.split('. ').slice(0, 2).join('. '): ''
+              description: city.description ? city.description.split('. ').slice(0, 2).join('. ') : ''
             }))
           }));
 
           this.ctx.detectChanges();
+          this.startAutoRotation();
         }
         else {
           this.toaster.showError("There is an error to load promoated city")
@@ -92,7 +81,7 @@ export class ViewTopPerformingCity implements OnInit, OnDestroy {
       if (current === this.totalViews - 1) {
         this.currentView.set(0);
       } else {
-        this.currentView.set(typeof current === 'number' ? current + 1 : 1);
+        this.currentView.set(current + 1);
       }
 
       setTimeout(() => {
@@ -109,9 +98,8 @@ export class ViewTopPerformingCity implements OnInit, OnDestroy {
       if (current === 0) {
         this.currentView.set(this.totalViews - 1);
       } else {
-        this.currentView.set(typeof current === 'number' ? current - 1 : 0);
+        this.currentView.set(current - 1);
       }
-
       setTimeout(() => {
         this.isTransitioning.set(false);
       }, 50);
@@ -140,8 +128,5 @@ export class ViewTopPerformingCity implements OnInit, OnDestroy {
     return null;
   }
 
-  isOverallView(): boolean {
-    return this.currentView() === 0;
-  }
-
 }
+
