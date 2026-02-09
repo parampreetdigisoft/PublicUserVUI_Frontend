@@ -18,7 +18,7 @@ export class ViewTopPerformingCity implements OnInit, OnDestroy {
   currentView = signal<number>(0); // 0 for overall, 1-14 for pillars
   isTransitioning = signal(false);
   autoRotateInterval: any;
-  path = environment.apiUrl + '/';
+  path = environment.apiUrl;
   // 14 Pillars with top 3 cities each
   pillars: PromotedPillarsResponseDto[] = [];
   totalViews = 14; // 1 overall + 14 pillars

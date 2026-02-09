@@ -10,7 +10,7 @@
 			<div class="view-header pillar-header">
 				<div class="view-title-wrapper">
 					<div class="view-icon pillar-icon faq_inner_svg">
-						<img [src]="path+pillar.imagePath"
+						<img [src]="path+ '/'+pillar.imagePath"
 							[alt]="'Pillar'">
 						<!-- <div class="image-overlay" [style.background]="'linear-gradient(to bottom, transparent, #3d7a5f)'"></div> -->
 					</div>
@@ -41,7 +41,7 @@
 
 
 					<div class="card-image">
-						<img [src]="city.image"
+						<img [src]="path+city.image"
 							[alt]="city.cityName"
 							(error)="onImgError($event)">
 						<div class="image-overlay"></div>
