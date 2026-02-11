@@ -125,3 +125,20 @@
     padding-right: 0;
   }
 }
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #304a43;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 10px;
+  transition: 0.3s;
+  font-size: 12px;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+  font-size: 13px;
+}

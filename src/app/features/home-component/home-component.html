@@ -259,26 +259,42 @@
 
                         Veridian Urban Systems (VUS) is the world’s first AI-powered platform that unifies regenerative
                         intelligence with investment-grade urban insight, reading cities as integrated living systems
-                        while translating that complexity into clear, actionable, investment-ready foresight. It blends
-                        regenerative design, advanced analytics, governance expertise, and conflict-risk modeling to
-                        give governments, multilaterals, and investors a single, reliable source of truth about urban
-                        resilience, risk, and opportunity. VUS goes beyond diagnostics by identifying where a city can
-                        absorb capital, where governance systems are stable, where disruption pressures may emerge, and
-                        where reforms are strengthening investability. Through 14 interconnected pillars and hundreds of
-                        adaptive indicators, the platform converts political, environmental, social, and infrastructural
-                        signals into intelligence that reduces uncertainty and enables disciplined strategic
-                        decision-making. Powered by AI that learns from each city’s economic, social, ecological, and
-                        institutional patterns, VUS detects vulnerabilities, highlights leverage points for reform, and
-                        anticipates trajectories well ahead of traditional forecasting models. It provides
-                        sector-specific investability, governance-reliability profiles, conflict-disruption probability
-                        curves, infrastructure-readiness assessments, and forward-looking climate-security insights
-                        unavailable elsewhere. Guided by a global network of urbanists, scientists, technologists,
-                        financiers, and policy strategists, Veridian builds ethical intelligence systems that restore
-                        trust, enhance predictability, and reveal the real conditions under which cities become stable,
-                        competitive, and future-ready. More than smart technology, VUS is a decision-support engine for
-                        mayors, ministers, and markets—turning fragmented urban data into clarity, confidence, and
-                        strategic advantage, making cities legible, investable, resilient, and self-renewing.
+                        while translating that complexity into clear, actionable, investment-ready foresight.
+                        <ng-container *ngIf="showMoreVUS()">It blends
+                            regenerative design, advanced analytics, governance expertise, and conflict-risk modeling to
+                            give governments, multilaterals, and investors a single, reliable source of truth about
+                            urban
+                            resilience, risk, and opportunity. VUS goes beyond diagnostics by identifying where a city
+                            can
+                            absorb capital, where governance systems are stable, where disruption pressures may emerge,
+                            and
+                            where reforms are strengthening investability. Through 14 interconnected pillars and
+                            hundreds of
+                            adaptive indicators, the platform converts political, environmental, social, and
+                            infrastructural
+                            signals into intelligence that reduces uncertainty and enables disciplined strategic
+                            decision-making. Powered by AI that learns from each city’s economic, social, ecological,
+                            and
+                            institutional patterns, VUS detects vulnerabilities, highlights leverage points for reform,
+                            and
+                            anticipates trajectories well ahead of traditional forecasting models. It provides
+                            sector-specific investability, governance-reliability profiles, conflict-disruption
+                            probability
+                            curves, infrastructure-readiness assessments, and forward-looking climate-security insights
+                            unavailable elsewhere. Guided by a global network of urbanists, scientists, technologists,
+                            financiers, and policy strategists, Veridian builds ethical intelligence systems that
+                            restore
+                            trust, enhance predictability, and reveal the real conditions under which cities become
+                            stable,
+                            competitive, and future-ready. More than smart technology, VUS is a decision-support engine
+                            for
+                            mayors, ministers, and markets—turning fragmented urban data into clarity, confidence, and
+                            strategic advantage, making cities legible, investable, resilient, and self-renewing.
+                        </ng-container>
                     </p>
+                    <button class="read-more-btn" (click)="showMoreVUS.set(!showMoreVUS())">
+                        {{ showMoreVUS() ? 'Read Less' : 'Read More' }}
+                    </button>
                     <p>
                         <b>VUS makes cities legible, investable, resilient, and self-renewing.</b>
                         <br>
@@ -309,18 +325,22 @@
                         multilaterals, and businesses. It reads the urban environment as a dynamic organism where
                         infrastructure, ecology, trust, mobility, memory, and governance shape one another, and it turns
                         this complexity into decision intelligence rather than rankings. Drawing on satellite imagery,
-                        sensor networks, administrative systems, financial signals, and citizen input, the VUI
-                        identifies the conditions that influence capital absorption, regulatory stability, conflict
-                        exposure, service performance, and long-term resilience. Its fourteen interconnected pillars and
-                        eight hundred indicators track governance reliability, institutional legitimacy, climate
-                        vulnerability, equity, economic vitality, and social cohesion, translating them into bankability
-                        profiles, sector investability, corridor-level opportunity maps, and forward-looking risk
-                        scenarios. Leaders gain a mirror that shows their city’s full systemic reality and a compass
-                        that guides reforms, resource allocation, and capital attraction with precision. Instead of
-                        static scorecards, the VUI offers living intelligence—predictive, adaptive, ethically designed,
-                        and grounded in how cities evolve, endure, and create value.
+                            sensor networks, administrative systems, financial signals, and citizen input, the VUI
+                            identifies the conditions that influence capital absorption, regulatory stability, conflict
+                            exposure, service performance, and long-term resilience.<ng-container
+                            *ngIf="showMoreVUI()">  Its fourteen interconnected pillars
+                            and
+                            eight hundred indicators track governance reliability, institutional legitimacy, climate
+                            vulnerability, equity, economic vitality, and social cohesion, translating them into
+                            bankability
+                            profiles, sector investability, corridor-level opportunity maps, and forward-looking risk
+                            scenarios. Leaders gain a mirror that shows their city’s full systemic reality and a compass
+                            that guides reforms, resource allocation, and capital attraction with precision. Instead of
+                            static scorecards, the VUI offers living intelligence—predictive, adaptive, ethically
+                            designed,
+                            and grounded in how cities evolve, endure, and create value.</ng-container>
                     </p>
-                    <p>
+                    <p *ngIf="showMoreVUI()">
                         The VUI gives cities both a mirror and a compass—a mirror to understand their full systemic
                         reality and a compass to guide reforms, allocate resources, and attract capital with clarity and
                         precision. For cities, it exposes system performance and bottlenecks; for businesses, it reveals
@@ -330,6 +350,9 @@
                         replaces static indices with living intelligence—predictive, adaptive, ethically built, and
                         grounded in how cities actually evolve, endure, and create value.
                     </p>
+                    <button class="read-more-btn" (click)="showMoreVUI.set(!showMoreVUI())">
+                        {{ showMoreVUI() ? 'Read Less' : 'Read More' }}
+                    </button>
                 </div>
             </div>
 

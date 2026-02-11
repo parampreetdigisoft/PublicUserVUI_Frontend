@@ -25,6 +25,8 @@ type PlanCategory = 'Evaluation' | 'Access';
   styleUrl: './home-component.css'
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  showMoreVUI = signal(false);
+  showMoreVUS = signal(false);
   pillars = [
     "environmental",
     "economic",
