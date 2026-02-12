@@ -16,3 +16,20 @@ ul.blog_list_ul {
     padding-left: 30px;
     list-style: disc;
 }
+
+.blog_sub_head h4 {
+    color: #1D1D1D;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 2.5rem 0;
+}
+
+.blog_sub_head p {
+  margin-bottom: 12px;
+}
+.blog_sub_head {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}

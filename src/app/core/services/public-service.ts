@@ -3,7 +3,7 @@ import { HttpService } from './http-service';
 import { ResultResponseDto } from '../models/ResultResponseDto';
 import { map } from 'rxjs';
 import { CityVM } from '../models/CityVM';
-import { PartnerCityRequest } from '../models/PaginationRequest';
+import { PaginationRequest, PartnerCityRequest } from '../models/PaginationRequest';
 import { PaginationResponse } from '../models/PaginationResponse';
 import { PartnerCityResponseDto } from '../models/PartnerCityHistoryResponseDto';
 import { PillarResponseDto } from '../models/PillarResponseDto';
@@ -48,8 +48,8 @@ export class PublicService {
   GetPromotedCities() { 
     return this.http.get('Public/promoted-cities').pipe(map((x) => x as ResultResponseDto<PromotedPillarsResponseDto[]>));
   }
-  getPublicUsersBlogs() { 
-    return this.http.get('Blog/getPublicUsersBlogs').pipe(map((x) => x as ResultResponseDto<BlogVM[]>));
+  getPublicUsersBlogs(request:PaginationRequest) { 
+    return this.http.getWithQueryParams('Blog/getPublicUsersBlogs',request).pipe(map((x) => x as PaginationResponse<BlogVM>));
   }
   getBlogById(id:number) { 
     return this.http.get('Blog/getBlogById/'+id).pipe(map((x) => x as ResultResponseDto<BlogVM>));
