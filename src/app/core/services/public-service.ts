@@ -10,6 +10,7 @@ import { PillarResponseDto } from '../models/PillarResponseDto';
 import { PartnerCityFilterResponse } from '../models/PartnerCityFilterResponse';
 import { CountryCityResponse } from '../models/CountryCityResponse';
 import { PromotedPillarsResponseDto } from '../models/PromotedPillarsResponseDto';
+import { BlogVM } from '../models/BlogVM';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +47,11 @@ export class PublicService {
   
   GetPromotedCities() { 
     return this.http.get('Public/promoted-cities').pipe(map((x) => x as ResultResponseDto<PromotedPillarsResponseDto[]>));
+  }
+  getPublicUsersBlogs() { 
+    return this.http.get('Blog/getPublicUsersBlogs').pipe(map((x) => x as ResultResponseDto<BlogVM[]>));
+  }
+  getBlogById(id:number) { 
+    return this.http.get('Blog/getBlogById/'+id).pipe(map((x) => x as ResultResponseDto<BlogVM>));
   }
 }

@@ -1,21 +1,14 @@
-import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, inject, OnInit, signal, ViewEncapsulation } from '@angular/core';
 import { CommonService } from '../../../../core/services/common-service';
-import { UserRoleValue } from '../../../../core/models/UserRole';
-import { Blog1 } from '../blog1/blog1';
-import { Blog2 } from '../blog2/blog2';
-import { Blog3 } from '../blog3/blog3';
-import { Blog4 } from '../blog4/blog4';
-import { Blog5 } from '../blog5/blog5';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Blog6 } from '../blog6/blog6';
-import { Blog7 } from '../blog7/blog7';
-import { Blog8 } from '../blog8/blog8';
-import { Blog9 } from '../blog9/blog9';
+import { PublicService } from '../../../../core/services/public-service';
+import { BlogVM } from '../../../../core/models/BlogVM';
+import { ToasterService } from '../../../../core/services/toaster.service';
 
 @Component({
   selector: 'app-blog-detail-component',
-  imports: [Blog1, Blog2, Blog3, Blog4, Blog5, Blog6, Blog7, Blog8, Blog9, CommonModule],
+  imports: [CommonModule],
   templateUrl: './blog-detail-component.html',
   styleUrl: './blog-detail-component.css',
   encapsulation: ViewEncapsulation.None,
@@ -23,17 +16,35 @@ import { Blog9 } from '../blog9/blog9';
 export class BlogDetailComponent implements OnInit {
   private common = inject(CommonService);
   private route = inject(ActivatedRoute);
-  blogID: string | null = null;
+  private toast = inject(ToasterService);
+  private publicService = inject(PublicService);
+  blogID: number=0;
+  blog = signal<BlogVM | null>(null);
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.blogID = params.get('blogID');
+      let id = params.get('blogID');
+      this.blogID = Number(id)
+
+      if(this.blogID > 0){
+        this.getBlogById();
+      }
     });
   }
 
+  getBlogById() {
+    this.publicService.getBlogById(this.blogID).subscribe({
+      next:(res)=> {
+        this.blog.set(res.result);
+      },
+      error:()=> { 
+        this.toast.showError("Error in getting blog, Please try again"); 
+      }
+    });
+  
+  }
 
   loginCityUser() {
-
     this.common.goToSubscriptionApp();
   }
 
@@ -44,5 +55,12 @@ export class BlogDetailComponent implements OnInit {
   loginAdmin() {
     //let url = '/auth/login?role=' + UserRoleValue.Admin;
     this.common.goToAdminApp();
+  }
+
+  decodeHtml(text: string | undefined): string {
+    if(text == undefined) return '';
+    const txt = document.createElement('textarea');
+    txt.innerHTML = text;
+    return txt.value.replace(/\u00a0/g, ' '); // Replace non-breaking space with normal space
   }
 }
