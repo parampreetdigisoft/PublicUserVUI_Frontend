@@ -94,7 +94,7 @@
 								{{ blog.description }}
 							</p>
 							<a href="void::javascript(0)"
-								routerLink="/blog-details/2"
+								[routerLink]="'/blog-details/'+blog.blogID"
 								class="link_btn">
 								<span>Read Article</span>
 								<svg width="13"

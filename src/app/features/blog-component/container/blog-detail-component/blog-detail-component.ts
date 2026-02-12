@@ -6,6 +6,7 @@ import { PublicService } from '../../../../core/services/public-service';
 import { BlogVM } from '../../../../core/models/BlogVM';
 import { ToasterService } from '../../../../core/services/toaster.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { environment } from '../../../../../environments/environment';
 
 
 
@@ -23,7 +24,7 @@ export class BlogDetailComponent implements OnInit {
   private publicService = inject(PublicService);
   blogID: number = 0;
   blog = signal<BlogVM | null>(null);
-
+  url = environment.apiUrl;
   constructor(private sanitizer: DomSanitizer) { }
 
   sanitize(html: string | undefined): SafeHtml {
@@ -72,5 +73,8 @@ export class BlogDetailComponent implements OnInit {
   loginAdmin() {
     //let url = '/auth/login?role=' + UserRoleValue.Admin;
     this.common.goToAdminApp();
+  }
+   onImgError(event: Event) {
+    (event.target as HTMLImageElement).src = '/blog1.png';
   }
 }

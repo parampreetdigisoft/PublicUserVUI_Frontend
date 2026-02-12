@@ -20,7 +20,9 @@
                       {{blog()?.title }}
                     </h2>
                     <div class="blog_img mb-4">
-                        <img src="/blog1.png" alt="">
+                        <img [src]="url + blog()?.imageUrl"
+								(error)="onImgError($event)"
+								alt>
                     </div>
                    <div class="blog_sub_head" [class.collapsed]="true" [innerHTML]="sanitize(blog()?.description)">
                     </div>
