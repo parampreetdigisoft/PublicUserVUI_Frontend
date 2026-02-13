@@ -30,8 +30,10 @@
     "@angular/router": "^20.3.0",
     "@ng-select/ng-select": "^20.2.2",
     "bootstrap": "^5.3.8",
+    "dotenv": "^8.2.0",
     "ng-recaptcha-2": "^16.0.1",
     "ngx-cookie-service": "^20.1.1",
+    "node-fetch": "^3.3.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
