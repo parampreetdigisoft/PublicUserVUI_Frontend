@@ -14,3 +14,18 @@
 section.blog_page {
     padding-bottom: 5rem;
 }
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;              /* space between buttons */
+  flex-wrap: wrap;        /* responsive */
+}
+
+.pagination-wrapper a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer !important;
+}
