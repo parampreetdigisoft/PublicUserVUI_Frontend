@@ -1,0 +1,7 @@
+@if(roleName()=='login'){
+<app-login-component (onSubmitLoginDetail)="login($event)" [loading]="loading()"></app-login-component>
+} @else if(roleName()=='sign-up'){
+<app-sign-up-component (submitsignUpDetail)="cityUserSignUp($event)" [loading]="loading()"></app-sign-up-component>
+} @else if(roleName()=='password-recovery'){
+<app-forget-password-component></app-forget-password-component>
+}

@@ -1,0 +1,12 @@
+
+@if(status === 'pending'){
+<div>Payment is pending. We'll confirm shortly.
+  <button (click)="check()">Retry check now</button>
+</div>
+}
+
+@if(status === 'succeeded'){
+
+        <div > Payment successful! You can now login.</div>
+}
+
